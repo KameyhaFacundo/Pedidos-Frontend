@@ -2,6 +2,7 @@ import { BrowserRouter } from "react-router-dom";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "./components/views/Login";
+import Error404 from "./components/views/Error404";
 
 
 function App() {
@@ -12,7 +13,8 @@ function App() {
   
    <BrowserRouter>
   
-  <Login></Login>
+  <Error404></Error404>
+  {/* <Login></Login> */}
 
   
   </BrowserRouter>

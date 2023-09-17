@@ -14,8 +14,6 @@ const Login = ({setUsuarioActivo}) => {
 
 
 const onSubmit = (usuario)=>{
-    console.log('aqui agrego mi logica')
-    console.log(usuario)
     login(usuario).then((respuesta)=>{
       console.log(respuesta)
       if(respuesta.status === 200){
@@ -97,4 +95,4 @@ const onSubmit = (usuario)=>{
             };
 
 
-export default login;
+export default Login;

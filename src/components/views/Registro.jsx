@@ -1,24 +1,27 @@
 import { Button, Container, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 
 const Registro = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    watch,
   } = useForm();
 
   const onSubmit = (user) => {
+    user.rol = "Usuario";
     console.log(user);
   };
 
   return (
     <Container className="my-4">
-      <div className="card shadow">
+      <div className="card border border-5 shadow">
         <div className="row justify-content-center g-0">
           <div className="col-md-6 d-flex align-items-center">
             <img
-              src="/street-food.svg"
+              src="/chef.svg"
               className="img-fluid p-3"
               alt="Camión de comida"
             />
@@ -86,6 +89,21 @@ const Registro = () => {
                     isInvalid={errors.password}
                     {...register("password", {
                       required: "La contraseña es un dato obligatorio.",
+                      minLength: {
+                        value: 8,
+                        message:
+                          "La contraseña debe de de tener minimo 8 caracteres.",
+                      },
+                      maxLength: {
+                        value: 18,
+                        message:
+                          "La contraseña debe de de tener maximo 18 caracteres.",
+                      },
+                      pattern: {
+                        value: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S+$/,
+                        message:
+                          "La contraseña debe tener al menos un dígito, al menos una minúscula y al menos una mayúscula.",
+                      },
                     })}
                   />
                   <Form.Control.Feedback type="invalid">
@@ -101,6 +119,9 @@ const Registro = () => {
                     {...register("confirmPassword", {
                       required:
                         "La repeticion de la contraseña es obligatorio.",
+                      validate: (value) =>
+                        value === watch("password") ||
+                        "Las contraseñas no coinciden.",
                     })}
                   />
                   <Form.Control.Feedback type="invalid">
@@ -124,7 +145,10 @@ const Registro = () => {
                 </div>
                 <p className="card-text text-center">
                   <small className="text-body-secondary">
-                    ¿Ya tienes cuenta? <a href="">Iniciar sesión</a>
+                    ¿Ya tienes cuenta?
+                    <Link to="/login" className="mx-1 text-decoration-none">
+                      Iniciar sesión
+                    </Link>
                   </small>
                 </p>
               </Form>

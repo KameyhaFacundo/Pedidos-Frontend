@@ -4,7 +4,13 @@ import { useForm } from "react-hook-form"
 import Swal from "sweetalert2"
 import { useNavigate } from "react-router-dom"
 
-
+const Login = ({setUsuarioActivo}) => {
+    const {
+      register,
+      handleSubmit,
+      formState:{errors}
+    }= useForm();
+    const navegacion = useNavigate();
 
 
 const onSubmit = (usuario)=>{
@@ -88,5 +94,7 @@ const onSubmit = (usuario)=>{
     </Container>
   );
 
+            };
 
+            
 export default login;

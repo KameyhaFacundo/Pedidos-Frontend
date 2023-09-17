@@ -24,7 +24,7 @@ const onSubmit = (usuario)=>{
           'Ingresaste a la web cafecito',
           'success'
         )
-        // guardar el usuario en el localstorage o sessionStorage;
+     
         sessionStorage.setItem('usuarioLogueado', JSON.stringify(respuesta));
         setUsuarioActivo(respuesta);
         navegacion('/administrador')
@@ -96,5 +96,5 @@ const onSubmit = (usuario)=>{
 
             };
 
-            
+
 export default login;

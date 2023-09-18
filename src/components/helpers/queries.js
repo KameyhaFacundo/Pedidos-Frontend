@@ -1,10 +1,11 @@
 const uriProducto = import.meta.env.VITE_API_PRODUCTO;
 
-export const listarProducto = async () => {
+export const listarProductos = async () => {
   try {
     const respuesta = await fetch(uriProducto);
 
     const listaProductos = await respuesta.json();
+    console.log(listarProductos);
     return listaProductos;
   } catch (error) {
     console.log(error);

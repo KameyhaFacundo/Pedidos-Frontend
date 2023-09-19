@@ -56,7 +56,7 @@ const ItemProducto = ({
       </td>
       <td>{categoria}</td>
       <td>
-        <Link className="btn btn-warning" to={`/administrador/editar/${_id}`}>
+        <Link className="btn btn-warning" to={`/administracion/editar/${_id}`}>
           Editar
         </Link>
         <Button variant="danger" onClick={borrarProductoAPI}>

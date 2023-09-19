@@ -11,6 +11,8 @@ import Menu from "./components/common/Menu";
 import Footer from "./components/common/Footer";
 import Pedidos from "./components/views/Pedidos";
 import Administrador from "./components/views/Administrador";
+import EditarProducto from "./components/views/producto/EditarProducto";
+import CrearProducto from "./components/views/producto/CrearProducto";
 
 function App() {
   return (
@@ -35,6 +37,16 @@ function App() {
             exact
             path="/administracion"
             element={<Administrador></Administrador>}
+          ></Route>
+          <Route
+            exact
+            path="/administracion/editar/:id"
+            element={<EditarProducto></EditarProducto>}
+          ></Route>{" "}
+          <Route
+            exact
+            path="/administracion/crear"
+            element={<CrearProducto></CrearProducto>}
           ></Route>
           <Route exact path="/pedidos" element={<Pedidos></Pedidos>}></Route>
           <Route exact path="*" element={<Error404></Error404>}></Route>

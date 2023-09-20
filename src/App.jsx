@@ -3,7 +3,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "./components/views/Login";
 import Error404 from "./components/views/Error404";
-
+import AcercaDeNosotros from "./components/views/AcercaDeNosotros";
 
 function App() {
   // const usuarioEnLinea = JSON.parse(sessionStorage.getItem('usuarioLogueado')) || {};
@@ -13,7 +13,8 @@ function App() {
   
    <BrowserRouter>
   
-  <Error404></Error404>
+  <AcercaDeNosotros></AcercaDeNosotros>
+  {/* <Error404></Error404> */}
   {/* <Login></Login> */}
 
   

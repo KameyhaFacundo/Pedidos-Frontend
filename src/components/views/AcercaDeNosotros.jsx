@@ -1,10 +1,24 @@
+import React from 'react';
+import Card from 'react-bootstrap/Card';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import "../../styles/acercaDeNosotros.css"
+
+import Isaias from  '../../assets/Isaias.png';
+import Sergio from  '../../assets/Sergio.png';
+import Facundo from  '../../assets/Facundo.png';
+import Daniela from  '../../assets/Daniela.png';
+import Jose from  '../../assets/Jose.png';
+import Mauro from  '../../assets/Mauro.png';
+import GitIcono from  '../../assets/git.png';
+import Linkedin from  '../../assets/linkedin.png';
+
 const GrupoCards = ({ imageSrc, Apellido, Nombre, socialLinks }) => {
   return (
     <div
-      className="d-flex justify-content-center align-items-center"
-      style={{ minHeight: "30vh" }}
+      className="d-flex justify-content-center align-items-center min-H3"
     >
-      <Card style={{ width: "80%" }}>
+      <Card className='w80'>
         <Row className="align-items-center">
           <Col sm={4}>
             <Card.Img variant="top" src={imageSrc} />
@@ -12,7 +26,7 @@ const GrupoCards = ({ imageSrc, Apellido, Nombre, socialLinks }) => {
           <Col sm={8}>
             <Card.Body className="d-flex flex-column justify-content-center align-items-center">
               <Card.Title className="mb-3">
-                <span style={{ fontSize: "3.8rem" }}>
+                <span className="font-s3">
                   {Apellido} {Nombre}
                 </span>
               </Card.Title>
@@ -22,7 +36,7 @@ const GrupoCards = ({ imageSrc, Apellido, Nombre, socialLinks }) => {
                     <img
                       src={link.icon}
                       alt={link.name}
-                      style={{ width: "50px", height: "50px" }}
+                      className='img50'
                     />
                   </a>
                 ))}
@@ -118,14 +132,13 @@ const Participantes = () => {
   return (
     <>
       <div className="text-center">
-        <h1 style={{ color: "var(--secondary-one-violet)" }}>GLP TEAM </h1>
+        <h1>TEAM 1 </h1>
       </div>
       <div>
         {people.map((person) => (
           <div
             key={person.id}
             className="mb-4"
-            style={{ marginBottom: "20px" }}
           >
             <GrupoCards
               Apellido={person.Apellido}

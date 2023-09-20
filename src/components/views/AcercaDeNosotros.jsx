@@ -26,3 +26,44 @@ const GrupoCards = ({ imageSrc, Apellido, Nombre, socialLinks }) => {
       </div>
     );
   };
+
+  const Participantes = () => {
+    const people = [
+      { id: 1, Apellido: 'Padros', Nombre: 'Marcos Isaias', imageSrc: Isaias, socialLinks: [
+        { url: 'https://github.com/IsaiasPadros', icon: GitIcono, name: 'Git' },
+        { url: '', icon: Linkedin, name: 'Linkedin' },
+        
+      ] },
+      { id: 2, Apellido: 'Romo', Nombre: 'Mauro Agustin', imageSrc: Mauro, socialLinks: [
+          { url: 'https://github.com/MauroRomo1', icon: GitIcono, name: 'Git' },
+          { url: 'https://www.linkedin.com/in/mauro-romo-dharez/', icon: Linkedin, name: 'Linkedin' },
+          
+        ] },
+        { id: 3, Apellido: 'Rivadeneira', Nombre: 'Jose Luis', imageSrc: Jose, socialLinks: [
+          { url: 'https://github.com/Rivadeneiea', icon: GitIcono, name: 'Git' },
+          { url: '', icon: Linkedin, name: 'Linkedin' },
+          
+        ] },
+        { id: 4, Apellido: 'Kameyha', Nombre: 'Facundo Adrian', imageSrc: Facundo, socialLinks: [
+          { url: 'https://github.com/KameyhaFacundo', icon: GitIcono, name: 'Git' },
+          { url: '', icon: Linkedin, name: 'Linkedin' },
+          
+        ] },
+        { id: 5, Apellido: 'Zelaya', Nombre: 'Sergio', imageSrc: Sergio, socialLinks: [
+          { url: 'https://github.com/SergioSZelaya', icon: GitIcono, name: 'Git' },
+          { url: '', icon: Linkedin, name: 'Linkedin' },
+          
+        ] },
+        
+      
+    ];
+    
+    
+    ;
+  
+  export default Participantes;
+  
+
+  
+  
+  

@@ -54,12 +54,17 @@ const GrupoCards = ({ imageSrc, Apellido, Nombre, socialLinks }) => {
           { url: '', icon: Linkedin, name: 'Linkedin' },
           
         ] },
+        { id: 5, Apellido: 'Geronimo', Nombre: 'Daniela', imageSrc: Daniela, socialLinks: [
+          { url: 'https://github.com/Danielageronimo', icon: GitIcono, name: 'Git' },
+          { url: '', icon: Linkedin, name: 'Linkedin' },
+          
+        ] }
         
       
     ];
     
     
-    ;
+    
   
   export default Participantes;
   

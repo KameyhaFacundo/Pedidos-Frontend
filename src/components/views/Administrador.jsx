@@ -3,19 +3,18 @@ import { Table, Button } from "react-bootstrap";
 import ItemProducto from "./producto/ItemProducto";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { listarProductos } from "../helpers/queries";
+import { tolistProducts } from "../helpers/queries";
 import Swal from "sweetalert2";
 
 const Administrador = () => {
-  const [productos, setProductos] = useState([]);
+  const [products, setProducts] = useState([]);
   useEffect(() => {
-    // tengo que utilizar el .then
-    listarProductos().then((respuestaProductos) => {
-      if (respuestaProductos) {
+    tolistProducts().then((answerProducts) => {
+      if (answerProducts) {
         // actualizar el estado
-        setProductos(respuestaProductos);
+        setProducts(answerProducts);
       } else {
-        Swal.fire("Ocurrio un error", "Intente de nuevo", "error");
+        Swal.fire("An error occurred", "Try again", "error");
       }
     });
   }, []);
@@ -40,11 +39,11 @@ const Administrador = () => {
           </tr>
         </thead>
         <tbody>
-          {productos.map((producto) => (
+          {products.map((product) => (
             <ItemProducto
-              {...producto}
-              key={producto._id}
-              setProductos={setProductos}
+              {...product}
+              key={product._id}
+              setProductos={setProducts}
             ></ItemProducto>
           ))}
         </tbody>

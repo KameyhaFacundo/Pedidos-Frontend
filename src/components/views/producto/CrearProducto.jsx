@@ -2,7 +2,7 @@ import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
 import Swal from "sweetalert2";
-import { crearProducto, obtenerProducto } from "../../helpers/queries";
+import { createProducts, obtainProducts } from "../../helpers/queries";
 
 const CrearProducto = () => {
   const {
@@ -12,22 +12,22 @@ const CrearProducto = () => {
     reset,
     setValue,
   } = useForm(() => {
-    obtenerProducto(id)
-      .then((respuesta) => {
-        if (respuesta) {
-          setValue("nombreProducto", respuesta.producto);
+    obtainProducts(id)
+      .then((answer) => {
+        if (answer) {
+          setValue("nameProduct", answer.product);
         }
       })
       .catch((error) => {});
   });
-  // esta funcion pide logear al usuario
-  const onSubmit = (producto) => {
-    console.log("aca agrego logica");
-    console.log(producto);
 
-    crearProducto(producto)
-      .then((respuesta) => {
-        if (respuesta.status === 201) {
+  const onSubmit = (product) => {
+    console.log("aca agrego logica");
+    console.log(product);
+
+    createProducts(product)
+      .then((answer) => {
+        if (answer.status === 201) {
           Swal.fire(
             "producto guardado",
             "su producto se guardo correctamente",
@@ -56,7 +56,7 @@ const CrearProducto = () => {
           <Form.Control
             type="text"
             placeholder="Ej: Cafe"
-            {...register("nombreProducto", {
+            {...register("nameProduct", {
               required: "ingrese un producto valido",
             })}
           />
@@ -67,7 +67,7 @@ const CrearProducto = () => {
             as="textarea"
             type="text"
             placeholder="Leave a comment here"
-            {...register("descripcion", {
+            {...register("descripction", {
               required: "ingrese un producto valido",
             })}
           />
@@ -77,7 +77,7 @@ const CrearProducto = () => {
           <Form.Control
             type="number"
             placeholder="Ej: 50"
-            {...register("precio", {
+            {...register("price", {
               required: "ingrese un precio valido",
             })}
           />
@@ -87,7 +87,7 @@ const CrearProducto = () => {
           <Form.Control
             type="text"
             placeholder="Ej: https://www.pexels.com/es-es/vans-en-blanco-y-negro-fuera-de-la-decoracion-para-colgar-en-la-pared-1230679/"
-            {...register("imagen", {
+            {...register("image", {
               required: "La url de la imagen es obligatoria",
               pattern: {
                 value: /^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/,
@@ -99,15 +99,15 @@ const CrearProducto = () => {
         <Form.Group className="mb-3" controlId="formPrecio">
           <Form.Label>Categoria*</Form.Label>
           <Form.Select
-            {...register("categoria", {
+            {...register("category", {
               required: "ingrese un producto valido",
             })}
           >
             <option value="">Seleccione una opcion</option>
-            <option value="bebida caliente">Bebida caliente</option>
-            <option value="bebida fria">Bebida fria</option>
-            <option value="dulce">Dulce</option>
-            <option value="salado">Salado</option>
+            <option value="sandwiches">Sandwiches</option>
+            <option value="pizzas">Pizzas</option>
+            <option value="picadas">Picadas</option>
+            <option value="bebidas">Bebidas</option>
           </Form.Select>
         </Form.Group>
         <Button variant="primary" type="submit">

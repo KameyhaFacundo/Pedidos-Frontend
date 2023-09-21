@@ -1,27 +1,27 @@
-const uriProducto = import.meta.env.VITE_API_PRODUCTO;
+const uriProduct = import.meta.env.VITE_API_PRODUCTO;
 
-export const listarProductos = async () => {
+export const tolistProducts = async () => {
   try {
-    const respuesta = await fetch(uriProducto);
+    const answer = await fetch(uriProduct);
 
-    const listaProductos = await respuesta.json();
-    console.log(listarProductos);
-    return listaProductos;
+    const tolistProducts = await answer.json();
+    console.log(tolistProducts);
+    return tolistProducts;
   } catch (error) {
     console.log(error);
   }
 };
-// POST
-export const crearProducto = async (producto) => {
+
+export const createProducts = async (product) => {
   try {
-    const resp = await fetch(uriProducto, {
+    const resp = await fetch(uriProduct, {
       method: "POST",
 
       headers: {
         "Content-Type": "application/json",
       },
 
-      body: JSON.stringify(producto),
+      body: JSON.stringify(product),
     });
     return resp;
   } catch (error) {
@@ -29,9 +29,9 @@ export const crearProducto = async (producto) => {
   }
 };
 
-export const obtenerProducto = async (id) => {
+export const obtainProducts = async (id) => {
   try {
-    const resp = await fetch(`${uriProducto}/${id}`);
+    const resp = await fetch(`${uriProduct}/${id}`);
     const data = await resp.json();
     return data;
   } catch (error) {
@@ -39,14 +39,14 @@ export const obtenerProducto = async (id) => {
   }
 };
 
-export const editarProducto = async (id, productoEditado) => {
+export const editProducts = async (id, productEdit) => {
   try {
-    const resp = await fetch(`${uriProducto}/${id}`, {
+    const resp = await fetch(`${uriProduct}/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(productoEditado),
+      body: JSON.stringify(productEdit),
     });
     return resp;
   } catch (error) {
@@ -54,9 +54,9 @@ export const editarProducto = async (id, productoEditado) => {
   }
 };
 
-export const borrarProductoAPI = async (id) => {
+export const deleteProducts = async (id) => {
   try {
-    const respuesta = await fetch(`${uriProducto}/${id}`, {
+    const respuesta = await fetch(`${uriProduct}/${id}`, {
       method: "DELETE",
     });
     return respuesta;

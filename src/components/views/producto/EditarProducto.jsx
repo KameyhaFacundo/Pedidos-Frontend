@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
-import { editarProducto, obtenerProducto } from "../../helpers/queries";
+import { editProducts, obtainProducts } from "../../helpers/queries";
 import Swal from "sweetalert2";
 
 const EditarProducto = () => {
@@ -14,16 +14,15 @@ const EditarProducto = () => {
     formState: { errors },
     setValue,
   } = useForm();
-  // esta funcion pide logear al usuario
   useEffect(() => {
-    obtenerProducto(id)
-      .then((respuesta) => {
-        if (respuesta) {
-          setValue("nombreProducto", respuesta.nombreProducto);
-          setValue("descripcion", respuesta.descripcion);
-          setValue("precio", respuesta.precio);
-          setValue("imagen", respuesta.imagen);
-          setValue("categoria", respuesta.categoria);
+    obtainProducts(id)
+      .then((answer) => {
+        if (answer) {
+          setValue("nameProduct", answer.nameProduct);
+          setValue("description", answer.description);
+          setValue("price", answer.price);
+          setValue("image", answer.image);
+          setValue("category", answer.category);
         }
       })
       .catch((error) => {
@@ -31,13 +30,13 @@ const EditarProducto = () => {
       });
   }, []);
 
-  const onSubmit = (producto) => {
+  const onSubmit = (product) => {
     console.log("aca agrego logica");
-    console.log(producto);
+    console.log(product);
 
-    editarProducto(id, producto)
-      .then((respuesta) => {
-        if (respuesta.status === 200) {
+    editProducts(id, product)
+      .then((answer) => {
+        if (answer.status === 200) {
           Swal.fire(
             "producto editado",
             "su producto se edito correctamente",
@@ -64,7 +63,7 @@ const EditarProducto = () => {
           <Form.Control
             type="text"
             placeholder="Ej: Cafe"
-            {...register("nombreProducto", {
+            {...register("nameProduct", {
               required: "ingrese un producto valido",
             })}
           />
@@ -75,7 +74,7 @@ const EditarProducto = () => {
             as="textarea"
             type="text"
             placeholder="Leave a comment here"
-            {...register("descripcion", {
+            {...register("description", {
               required: "ingrese un producto valido",
             })}
           />
@@ -85,7 +84,7 @@ const EditarProducto = () => {
           <Form.Control
             type="number"
             placeholder="Ej: 50"
-            {...register("precio", {
+            {...register("price", {
               required: "ingrese un precio valido",
             })}
           />
@@ -95,7 +94,7 @@ const EditarProducto = () => {
           <Form.Control
             type="text"
             placeholder="Ej: https://www.pexels.com/es-es/vans-en-blanco-y-negro-fuera-de-la-decoracion-para-colgar-en-la-pared-1230679/"
-            {...register("imagen", {
+            {...register("image", {
               required: "La url de la imagen es obligatoria",
               pattern: {
                 value: /^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/,
@@ -107,7 +106,7 @@ const EditarProducto = () => {
         <Form.Group className="mb-3" controlId="formPrecio">
           <Form.Label>Categoria*</Form.Label>
           <Form.Select
-            {...register("categoria", {
+            {...register("category", {
               required: "ingrese una categoria valida",
             })}
           >

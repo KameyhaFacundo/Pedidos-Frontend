@@ -1,17 +1,20 @@
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { borrarProductoAPI, listarProductos } from "../../helpers/queries.js";
+import {
+  deleteProducts,
+  tolistProducts,
+} from "../../helpers/queries.js";
 import Swal from "sweetalert2";
 
 const ItemProducto = ({
   _id,
-  nombreProducto,
-  precio,
-  imagen,
-  categoria,
-  setProductos,
+  nameProduct,
+  price,
+  image,
+  category,
+  setProducts,
 }) => {
-  const borrarProductoAdmin = () => {
+  const deleteProductAdmin = () => {
     Swal.fire({
       title: "¿Esta seguro de eliminar producto?",
       text: "No se puede revertir este paso",
@@ -23,11 +26,11 @@ const ItemProducto = ({
       cancelButtonText: "Cancelar",
     }).then((result) => {
       if (result.isConfirmed) {
-        borrarProductoAPI(id).then((respuesta) => {
-          if (respuesta.status === 200) {
-            listarProductos().then((respuesta) => {
-              console.log(respuesta);
-              setProductos(respuesta);
+        deleteProducts(id).then((answer) => {
+          if (answer.status === 200) {
+            tolistProducts().then((answer) => {
+              console.log(answer);
+              setProducts(answer);
             });
             Swal.fire(
               "Producto eliminado",
@@ -49,17 +52,17 @@ const ItemProducto = ({
   return (
     <tr>
       <td>{_id}</td>
-      <td>{nombreProducto}</td>
-      <td>$ {precio}</td>
+      <td>{nameProduct}</td>
+      <td>$ {price}</td>
       <td>
-        <img className="w-25" src={imagen} alt="MDN" />
+        <img className="w-25" src={image} alt="MDN" />
       </td>
-      <td>{categoria}</td>
+      <td>{category}</td>
       <td>
         <Link className="btn btn-warning" to={`/administracion/editar/${_id}`}>
           Editar
         </Link>
-        <Button variant="danger" onClick={borrarProductoAPI}>
+        <Button variant="danger" onClick={deleteProducts}>
           Eliminar
         </Button>
       </td>

@@ -14,27 +14,28 @@ import Administrador from "./components/views/Administrador";
 import { useState } from "react";
 
 function App() {
-  const UsuarioNoLogueado = {
+  const userNoLogueado = {
     id: 0,
     rol: false,
   };
-  const usuarioOnline =
-    JSON.parse(sessionStorage.getItem("usuarioLogeado")) || UsuarioNoLogueado;
+  const userOnline =
+    JSON.parse(sessionStorage.getItem("usuarioLogeado")) || userNoLogueado;
 
-  const [usuarioActivo, setUsuarioActivo] = useState(usuarioOnline);
+  const [activeUser, setActiveUser] = useState(userOnline);
   return (
     <>
       <BrowserRouter>
-        <Menu
-          setUsuarioActivo={setUsuarioActivo}
-          usuarioActivo={usuarioActivo}
-        ></Menu>
+        <Menu setActiveUser={setActiveUser} activeUser={activeUser}></Menu>
         <Routes>
-          <Route exact path="/" element={<Inicio></Inicio>}></Route>
+          <Route
+            exact
+            path="/"
+            element={<Inicio activeUser={activeUser}></Inicio>}
+          ></Route>
           <Route
             exact
             path="/login"
-            element={<Login setUsuarioActivo={setUsuarioActivo}></Login>}
+            element={<Login setActiveUser={setActiveUser}></Login>}
           ></Route>
           <Route
             exact

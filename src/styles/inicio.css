@@ -4,7 +4,7 @@
 }
 
 .image-container {
-  max-height: 400px;
+  max-height: 600px;
 }
 
 .image-container img {
@@ -12,6 +12,30 @@
   height: auto;
 }
 
-.text {
+.title {
   color: black;
+  font-weight: 800;
+  font-size: 5rem;
+}
+
+.subtitle {
+  color: black;
+  font-size: 3rem;
+}
+
+.register {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: var(--color-primary);
+}
+.image-register {
+  width: 80%;
+}
+
+.search-name {
+  background-color: white;
+  display: flex;
+  padding: 30px;
+  margin: 4px;
 }

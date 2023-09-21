@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer className="bg-dark text-light py-4 text-center container-fluid">
+    <footer className="text-light py-4 text-center bg-color">
       <div className="d-flex row mt-4">
         <section className="col-12 col-lg-4 col-sm-12 mb-4 mt-4">
           <img
@@ -49,7 +49,7 @@ function Footer() {
         </section>
         <section className="col-12 col-lg-4 col-sm-6 mb-4 mt-4">
           <article className="d-flex justify-content-center">
-            <ul className="list-inline d-flex flex-wrap justify-content-center ">
+            <ul className="list-inline d-flex flex-wrap justify-content-center">
               <li className="nav-item social-logo mx-2">
                 <Link className="nav-link mx-2" to={"/*"}>
                   <img

@@ -12,14 +12,48 @@
   width: 100%;
   display: flex;
   justify-content: flex-end;
+  border: none;
 }
 
 .collapsex {
   width: 100%;
   display: flex;
+  border: none;
 }
+
 .buttons-nav {
   margin-right: 2.5% !important;
+  border: none;
+}
+
+.bg-color {
+  background-color: var(--color-secondary);
+  border: none;
+}
+
+.color-button {
+  background-color: var(--color-fourth);
+  border: none;
+}
+
+.color-button:hover {
+  background-color: var(--color-third);
+}
+
+.custom-button {
+  background-color: transparent;
+  border: none;
+  color: black;
+  padding: 2;
+}
+
+.custom-button:hover {
+  background-color: transparent;
+  color: var(--color-fourth);
+}
+
+.close-button {
+  background-color: var(--color-third);
 }
 
 @media (max-width: 992px) {

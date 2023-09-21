@@ -1,10 +1,11 @@
 const uriUsuario = import.meta.env.VITE_API_USUARIO;
+const uriProductos = import.meta.env.VITE_API_PRODUCTOS;
 
 const fetchData = async (url) => {
   try {
-    const respuesta = await fetch(url);
-    const datos = await respuesta.json();
-    return datos;
+    const answer = await fetch(url);
+    const data = await answer.json();
+    return data;
   } catch (error) {
     console.error("Error:", error);
   }
@@ -12,15 +13,15 @@ const fetchData = async (url) => {
 
 export const login = async (usuario) => {
   try {
-    const respuesta = await fetch(uriUsuario);
-    const listaUsuarios = await respuesta.json();
+    const answer = await fetch(uriUsuario);
+    const listUser = await answer.json();
 
-    const usuarioBuscado = listaUsuarios.find(
-      (itemUsuario) => itemUsuario.email === usuario.email
+    const searchUser = listUser.find(
+      (itemUsuario) => itemUser.email === user.email
     );
-    if (usuarioBuscado) {
-      if (usuarioBuscado.password === usuario.password) {
-        return usuarioBuscado;
+    if (searchUser) {
+      if (searchUser.password === user.password) {
+        return searchUser;
       } else {
         return null;
       }
@@ -32,6 +33,10 @@ export const login = async (usuario) => {
   }
 };
 
-export const listarUsuarios = async () => {
+export const listUser = async () => {
   return fetchData(uriUsuario);
+};
+
+export const listProducts = async () => {
+  return fetchData(uriProductos);
 };

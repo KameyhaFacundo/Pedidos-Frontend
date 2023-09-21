@@ -1,6 +1,14 @@
 @import url(./styles/inicio.css);
 @import url(./styles/menu.css);
 @import url(./styles/footer.css);
+@import url(./styles/cardProductos.css);
+
+:root {
+  --color-primary: #eff5f5;
+  --color-secondary: #d6e4e5;
+  --color-third: #497174;
+  --color-fourth: #eb6440;
+}
 
 #root {
   display: flex;

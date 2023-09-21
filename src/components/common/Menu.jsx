@@ -2,33 +2,33 @@ import React from "react";
 import { Container, Button, Nav, Navbar } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { listarUsuarios } from "../helpers/queries";
+import { listUser } from "../helpers/queries";
 
-const Menu = ({ setUsuarioActivo, usuarioActivo }) => {
-  const [usuarios, setUsuarios] = useState([]);
+const Menu = ({ setActiveUser, activeUser }) => {
+  const [user, setUser] = useState([]);
   const [admin, setAdmin] = useState([]);
 
-  const navagacion = useNavigate();
+  const navigation = useNavigate();
 
   useEffect(() => {
-    listarUsuarios().then((usuario) => {
-      setUsuarios(usuario);
+    listUser().then((user) => {
+      setUser(user);
     });
   }, []);
 
   useEffect(() => {
-    usuarios.map((usuariobuscado) => {
-      if (usuariobuscado.id === usuarioActivo) {
-        setAdmin(usuariobuscado.rol);
+    user.map((searchUser) => {
+      if (searchUser.id === activeUser) {
+        setAdmin(searchUser.rol);
       }
     });
-  }, [usuarios]);
+  }, [user]);
 
-  const cerrarSesion = () => {
-    setUsuarioActivo(0);
+  const logOut = () => {
+    setActiveUser(0);
     sessionStorage.removeItem("usuarioLogeado");
     window.location.reload();
-    navagacion("/");
+    navigation("/");
   };
 
   return (
@@ -36,7 +36,7 @@ const Menu = ({ setUsuarioActivo, usuarioActivo }) => {
       <Navbar
         collapseOnSelect
         expand="lg"
-        className="bg-dark sticky-top body-nav p-0"
+        className="sticky-top body-nav p-0 bg-color"
       >
         <Container>
           <Navbar.Brand>
@@ -54,61 +54,52 @@ const Menu = ({ setUsuarioActivo, usuarioActivo }) => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav buttons-nav" />
           <Navbar.Collapse id="responsive-navbar-nav collapsex buttons-nav">
             <Nav className="me-auto buttons-nav">
-              {usuarioActivo.id === 0 ? (
+              {activeUser.id === 0 ? (
                 <>
                   <Link to={"/acerca-de-nosotros"}>
-                    <Button variant="light" className="mx-1" type="submit">
+                    <Button className="mx-1 custom-button mt-2" type="submit">
                       Acerca de Nosotros
                     </Button>
                   </Link>
                   <Link to={"/login"}>
-                    <Button className="mx-1" variant="danger" type="submit">
+                    <Button className="mx-1 color-button mt-2" type="submit">
                       Iniciar sesión
                     </Button>
                   </Link>
                   <Link to={"/registro"}>
-                    <Button variant="light" className="mx-1" type="submit">
+                    <Button className="mx-1 color-button my-2" type="submit">
                       Registro
                     </Button>
                   </Link>
 
                   {/* <Login className="h-25" /> */}
                 </>
-              ) : usuarioActivo.rol === true ? (
+              ) : activeUser.rol === true ? (
                 <>
                   <Nav>
                     <Link to={"/administrador"}>
-                      <Button
-                        className="mx-1 buttonx"
-                        variant="secondary"
-                        type="submit"
-                      >
+                      <Button className="mx-1 color-button" type="submit">
                         Administrador
                       </Button>
                     </Link>
                   </Nav>
-                  <Link to={"/micuenta"}>
+                  {/* <Link to={"/micuenta"}>
                     <Button className="buttonx mx-1" variant="secondary">
                       Mi Cuenta
                     </Button>
-                  </Link>
+                  </Link> */}
 
                   <Nav>
                     <Link to={"/acerca-de-nosotros"}>
-                      <Button
-                        className="mx-1"
-                        variant="secondary"
-                        type="submit"
-                      >
+                      <Button className="mx-1 custom-button" type="submit">
                         Acerca de Nosotros
                       </Button>
                     </Link>
                     <Link to={"/administrador"} className="mr-5">
                       <Button
-                        className="mx-1 mr-5"
-                        variant="danger"
+                        className="mx-1 mr-5 close-button"
                         onClick={() => {
-                          cerrarSesion();
+                          logOut();
                         }}
                       >
                         Cerrar sesión
@@ -119,21 +110,20 @@ const Menu = ({ setUsuarioActivo, usuarioActivo }) => {
               ) : (
                 <>
                   <Link to={"/acerca-de-nosotros"}>
-                    <Button variant="secondary" className="mx-1" type="submit">
+                    <Button className="mx-1 custom-button" type="submit">
                       Acerca de Nosotros
                     </Button>
                   </Link>
-                  <Link to={"/micuenta"}>
+                  {/* <Link to={"/micuenta"}>
                     <Button variant="secondary" className="mx-1" type="submit">
                       Mi Cuenta
                     </Button>
-                  </Link>
+                  </Link> */}
                   <Link to={"/"} className="mr-5">
                     <Button
-                      className=" mx-1 mr-5 "
-                      variant="danger"
+                      className=" mx-1 mr-5 close-button"
                       onClick={() => {
-                        cerrarSesion();
+                        logOut();
                       }}
                     >
                       Cerrar sesión

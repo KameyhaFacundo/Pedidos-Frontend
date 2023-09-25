@@ -1,18 +1,67 @@
 import { Button, Container, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { createUser } from "../helpers/queries.js";
+import Swal from "sweetalert2";
+import { useEffect, useState } from "react";
 
 const Registro = () => {
+  useEffect(() => {
+    document.title = " nombre pagina | Registro";
+  }, []);
+
+  const [showSpinner, setShowSpinner] = useState(false);
+
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
     watch,
+    reset,
   } = useForm();
 
   const onSubmit = (user) => {
-    user.rol = "Usuario";
-    console.log(user);
+    user.rol = "usuario";
+    setShowSpinner(true);
+    createUser(user)
+      .then((resp) => {
+
+        if (!resp.ok) {
+          setShowSpinner(false);
+          return Swal.fire({
+            icon: "error",
+            title:
+              "<h5>Ya existe un usuario con ese apodo o correo electrónico</h5>",
+            text: "prueba con otro apodo o correo electrónico.",
+          });
+        }
+
+        reset();
+        Swal.fire({
+          icon: "success",
+          title: "<h5>Usuario registrado</h5>",
+          text: "Redirigiendo para iniciar sesion",
+          showConfirmButton: false,
+          timer: 2500,
+          didOpen: () => {
+            setTimeout(() => {
+              navigate("/login");
+            }, 2500);
+          },
+        });
+        setShowSpinner(false);
+      })
+      .catch((error) => {
+        setShowSpinner(false);
+        console.log(error);
+        Swal.fire({
+          icon: "error",
+          title: "<h5>Hubo un error</h5>",
+          text: "Intentalo mas tarde",
+        });
+      });
   };
 
   return (
@@ -140,9 +189,22 @@ const Registro = () => {
                     {errors.checkTermsConditions?.message}
                   </Form.Text>
                 </Form.Group>
-                <div className="d-grid mx-auto col col-md-8 my-4">
-                  <Button type="submit">Registrarse</Button>
-                </div>
+                {showSpinner ? (
+                  <div className="d-grid mx-auto col col-md-8 my-4">
+                    <button className="btn btn-primary" type="button" disabled>
+                      <span
+                        className="spinner-border spinner-border-sm"
+                        aria-hidden="true"
+                      ></span>
+                      <span role="status">Cargando...</span>
+                    </button>
+                  </div>
+                ) : (
+                  <div className="d-grid mx-auto col col-md-8 my-4">
+                    <Button type="submit">Registrarse</Button>
+                  </div>
+                )}
+
                 <p className="card-text text-center">
                   <small className="text-body-secondary">
                     ¿Ya tienes cuenta?

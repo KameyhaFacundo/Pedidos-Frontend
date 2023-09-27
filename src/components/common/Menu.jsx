@@ -2,27 +2,27 @@ import React from "react";
 import { Container, Button, Nav, Navbar } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { listUser } from "../helpers/queries";
+import { listUsers } from "../helpers/queries";
 
 const Menu = ({ setActiveUser, activeUser }) => {
-  const [user, setUser] = useState([]);
+  const [users, setUsers] = useState([]);
   const [admin, setAdmin] = useState([]);
 
   const navigation = useNavigate();
 
   useEffect(() => {
-    listUser().then((user) => {
-      setUser(user);
+    listUsers().then((user) => {
+      setUsers(user);
     });
   }, []);
 
   useEffect(() => {
-    user.map((searchUser) => {
+    users.map((searchUser) => {
       if (searchUser.id === activeUser) {
         setAdmin(searchUser.rol);
       }
     });
-  }, [user]);
+  }, [users]);
 
   const logOut = () => {
     setActiveUser(0);
@@ -43,7 +43,7 @@ const Menu = ({ setActiveUser, activeUser }) => {
             <Link to={"/"}>
               <img
                 className="login"
-                src="https://i.stack.imgur.com/lnYep.png"
+                src="https://res.cloudinary.com/dgzimgpia/image/upload/v1695305076/logo3_lm4xzi.png"
                 alt="logo"
                 onError={(e) => {
                   e.target.src = "https://i.stack.imgur.com/lnYep.png";
@@ -56,17 +56,17 @@ const Menu = ({ setActiveUser, activeUser }) => {
             <Nav className="me-auto buttons-nav">
               {activeUser.id === 0 ? (
                 <>
-                  <Link to={"/acerca-de-nosotros"}>
+                  <Link to={"/acerca-de-nosotros"} className="text-center">
                     <Button className="mx-1 custom-button mt-2" type="submit">
                       Acerca de Nosotros
                     </Button>
                   </Link>
-                  <Link to={"/login"}>
+                  <Link to={"/login"} className="text-center">
                     <Button className="mx-1 color-button mt-2" type="submit">
                       Iniciar sesión
                     </Button>
                   </Link>
-                  <Link to={"/registro"}>
+                  <Link to={"/registro"} className="text-center">
                     <Button className="mx-1 color-button my-2" type="submit">
                       Registro
                     </Button>
@@ -77,25 +77,25 @@ const Menu = ({ setActiveUser, activeUser }) => {
               ) : activeUser.rol === true ? (
                 <>
                   <Nav>
-                    <Link to={"/administrador"}>
+                    <Link to={"/administrador"} className="text-center">
                       <Button className="mx-1 color-button" type="submit">
                         Administrador
                       </Button>
                     </Link>
                   </Nav>
-                  {/* <Link to={"/micuenta"}>
+                  {/* <Link to={"/pedido"} className="text-center">
                     <Button className="buttonx mx-1" variant="secondary">
-                      Mi Cuenta
+                      Mis pedidos
                     </Button>
                   </Link> */}
 
                   <Nav>
-                    <Link to={"/acerca-de-nosotros"}>
+                    <Link to={"/acerca-de-nosotros"} className="text-center">
                       <Button className="mx-1 custom-button" type="submit">
                         Acerca de Nosotros
                       </Button>
                     </Link>
-                    <Link to={"/administrador"} className="mr-5">
+                    <Link to={"/administrador"} className="mr-5 text-center">
                       <Button
                         className="mx-1 mr-5 close-button"
                         onClick={() => {
@@ -109,17 +109,17 @@ const Menu = ({ setActiveUser, activeUser }) => {
                 </>
               ) : (
                 <>
-                  <Link to={"/acerca-de-nosotros"}>
+                  <Link to={"/acerca-de-nosotros"} className="text-center">
                     <Button className="mx-1 custom-button" type="submit">
                       Acerca de Nosotros
                     </Button>
                   </Link>
-                  {/* <Link to={"/micuenta"}>
+                  {/* <Link to={"/pedido"} className="text-center">
                     <Button variant="secondary" className="mx-1" type="submit">
-                      Mi Cuenta
+                      Mis Pedidos
                     </Button>
                   </Link> */}
-                  <Link to={"/"} className="mr-5">
+                  <Link to={"/"} className="mr-5 text-center">
                     <Button
                       className=" mx-1 mr-5 close-button"
                       onClick={() => {

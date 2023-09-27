@@ -1,0 +1,83 @@
+{
+  "usuarios": [
+    {
+      "nombreUsuario": "Admin",
+      "email": "admin@rolling.com",
+      "password": "123456aA",
+      "rol": true,
+      "id": 1
+    },
+    {
+      "nombreUsuario": "Facu",
+      "email": "facuKame@rolling.com",
+      "password": "123456bB",
+      "rol": false,
+      "id": 2
+    }
+  ],
+  "productos": [
+    {
+      "nameProduct": "Cafe con leche",
+      "price": "500",
+      "description": "Milanesa con papas",
+      "category": "Almuerzo",
+      "id": 1
+    },
+    {
+      "nombreProducto": "Te",
+      "precio": "500",
+      "estado": "activo",
+      "detalle": "Milanesa con papas",
+      "categoria": "Almuerzo",
+      "id": 2
+    },
+    {
+      "nombreProducto": "Chocolate",
+      "precio": "500",
+      "estado": "activo",
+      "detalle": "Milanesa con papas",
+      "categoria": "Almuerzo",
+      "id": 3
+    },
+    {
+      "nombreProducto": "Cafe con leche",
+      "precio": "500",
+      "estado": "activo",
+      "detalle": "Milanesa con papas",
+      "categoria": "Almuerzo",
+      "id": 4
+    },
+    {
+      "nombreProducto": "Cafe con leche",
+      "precio": "500",
+      "estado": "activo",
+      "detalle": "Milanesa con papas",
+      "categoria": "Almuerzo",
+      "id": 5
+    },
+    {
+      "nombreProducto": "Te",
+      "precio": "500",
+      "estado": "activo",
+      "detalle": "Milanesa con papas",
+      "categoria": "Almuerzo",
+      "id": 6
+    },
+    {
+      "nombreProducto": "Chocolate",
+      "precio": "500",
+      "estado": "activo",
+      "detalle": "Milanesa con papas",
+      "categoria": "Almuerzo",
+      "id": 7
+    },
+    {
+      "nombreProducto": "Cafe con leche",
+      "precio": "500",
+      "estado": "activo",
+      "detalle": "Milanesa con papas",
+      "categoria": "Almuerzo",
+      "id": 8
+    }
+  ]
+}

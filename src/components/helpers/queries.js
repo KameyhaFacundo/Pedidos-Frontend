@@ -11,29 +11,29 @@ const fetchData = async (url) => {
   }
 };
 
-export const login = async (usuario) => {
-  try {
-    const answer = await fetch(uriUsuario);
-    const listUser = await answer.json();
+// export const login = async (user) => {
+//   try {
+//     const answer = await fetch(uriUsuario);
+//     const listUsers = await answer.json();
 
-    const searchUser = listUser.find(
-      (itemUsuario) => itemUser.email === user.email
-    );
-    if (searchUser) {
-      if (searchUser.password === user.password) {
-        return searchUser;
-      } else {
-        return null;
-      }
-    } else {
-      return null;
-    }
-  } catch (error) {
-    console.log(error);
-  }
-};
+//     const searchUser = listUsers.find(
+//       (itemUser) => itemUser.email === user.email
+//     );
+//     if (searchUser) {
+//       if (searchUser.password === user.password) {
+//         return searchUser;
+//       } else {
+//         return null;
+//       }
+//     } else {
+//       return null;
+//     }
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 
-export const listUser = async () => {
+export const listUsers = async () => {
   return fetchData(uriUsuario);
 };
 

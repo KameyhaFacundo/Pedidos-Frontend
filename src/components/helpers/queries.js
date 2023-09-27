@@ -8,5 +8,18 @@ export const listUsers = async () => {
   } catch (error) {
     console.log(error);
     return null;
+
+export const createUser = async (user) => {
+  try {
+    const resp = await fetch(`${uriUser}/crear`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    });
+    return resp;
+  } catch (error) {
+    console.log(error);
   }
 };

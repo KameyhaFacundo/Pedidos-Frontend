@@ -8,6 +8,8 @@ export const listUsers = async () => {
   } catch (error) {
     console.log(error);
     return null;
+  }
+};
 
 export const createUser = async (user) => {
   try {

@@ -11,15 +11,32 @@ import Menu from "./components/common/Menu";
 import Footer from "./components/common/Footer";
 import Pedidos from "./components/views/Pedidos";
 import Administrador from "./components/views/Administrador";
+import { useState } from "react";
 
 function App() {
+  const userNoLogueado = {
+    id: 0,
+    rol: false,
+  };
+  const userOnline =
+    JSON.parse(sessionStorage.getItem("usuarioLogeado")) || userNoLogueado;
+
+  const [activeUser, setActiveUser] = useState(userOnline);
   return (
     <>
       <BrowserRouter>
-        <Menu></Menu>
+        <Menu setActiveUser={setActiveUser} activeUser={activeUser}></Menu>
         <Routes>
-          <Route exact path="/" element={<Inicio></Inicio>}></Route>
-          <Route exact path="/login" element={<Login></Login>}></Route>
+          <Route
+            exact
+            path="/"
+            element={<Inicio activeUser={activeUser}></Inicio>}
+          ></Route>
+          <Route
+            exact
+            path="/login"
+            element={<Login setActiveUser={setActiveUser}></Login>}
+          ></Route>
           <Route
             exact
             path="/acerca-de-nosotros"

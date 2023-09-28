@@ -11,6 +11,8 @@ import Menu from "./components/common/Menu";
 import Footer from "./components/common/Footer";
 import Pedidos from "./components/views/Pedidos";
 import Administrador from "./components/views/Administrador";
+import ListProduct    from './components/common/ListProduct'
+import CardProducto from "./components/views/producto/CardProducto";
 
 function App() {
   return (
@@ -36,6 +38,12 @@ function App() {
             path="/administracion"
             element={<Administrador></Administrador>}
           ></Route>
+          <Route
+            exact
+            path="/lista-de-producto"
+            element={<ListProduct/>}
+          ></Route>
+          <Route exact path="/productos/:id" component={CardProducto} />
           <Route exact path="/pedidos" element={<Pedidos></Pedidos>}></Route>
           <Route exact path="*" element={<Error404></Error404>}></Route>
         </Routes>

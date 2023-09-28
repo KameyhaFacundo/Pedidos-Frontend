@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-function CardProductos({ productos }) {
+function CardProductos({ products }) {
   const itemsPerPage = 12;
   const [currentPage, setCurrentPage] = useState(1);
 
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const currentProductos = productos.slice(
+  const currentProductos = products.slice(
     startIndex,
     startIndex + itemsPerPage
   );
@@ -21,7 +21,7 @@ function CardProductos({ productos }) {
           <div className="d-flex flex-wrap justify-content-center card-page-body">
             {currentProductos.map((product) => (
               <Card
-                className="mx-3 Nav-link"
+                className="mx-3 Nav-link card-product"
                 key={product.id}
                 style={{ width: "18rem" }}
               >
@@ -36,6 +36,7 @@ function CardProductos({ productos }) {
                 <Card.Body className="card-body-size d-flex flex-column justify-content-center">
                   <div className="d-flex justify-content-between">
                     <Card.Text>{product.nameProduct}</Card.Text>
+                    <Card.Text>{product.category}</Card.Text>
                     <Card.Title className="custom-card-size">
                       {"$" + product.price}
                     </Card.Title>

@@ -80,7 +80,7 @@ const Inicio = ({ activeUser }) => {
           </FormGroup>
         </Form>
       </section>
-      <CardProductos productos={productsfilter} />
+      <CardProductos products={productsfilter} />
 
       {activeUser.id === 0 && (
         <div>

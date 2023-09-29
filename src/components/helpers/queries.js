@@ -1,5 +1,4 @@
-// const uriUser = import.meta.env.VITE_API_USUARIO;
-const uriProducts = import.meta.env.VITE_API_PRODUCTOS;
+const uriProducts = "http://localhost:4000/api/product";
 
 export const listProducts = async () => {
   try {
@@ -12,34 +11,9 @@ export const listProducts = async () => {
   }
 };
 
-export const listUsers = async () => {
-  try {
-    const resp = await fetch(uriUser);
-    const userList = await resp.json();
-    return userList;
-  } catch (error) {
-    console.log(error);
-    return null;
-  }
-};
-
-export const createUser = async (user) => {
-  try {
-    const resp = await fetch(`${uriUser}/crear`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    });
-    return resp;
-  } catch (error) {
-    console.log(error);
-  }
-};
 export const tolistProducts = async () => {
   try {
-    const answer = await fetch(uriProduct);
+    const answer = await fetch(uriProducts);
 
     const tolistProducts = await answer.json();
     console.log(tolistProducts);
@@ -51,7 +25,7 @@ export const tolistProducts = async () => {
 
 export const createProducts = async (product) => {
   try {
-    const resp = await fetch(uriProduct, {
+    const resp = await fetch(uriProducts, {
       method: "POST",
 
       headers: {
@@ -68,7 +42,7 @@ export const createProducts = async (product) => {
 
 export const obtainProducts = async (id) => {
   try {
-    const resp = await fetch(`${uriProduct}/${id}`);
+    const resp = await fetch(`${uriProducts}/${id}`);
     const data = await resp.json();
     return data;
   } catch (error) {
@@ -78,7 +52,7 @@ export const obtainProducts = async (id) => {
 
 export const editProducts = async (id, productEdit) => {
   try {
-    const resp = await fetch(`${uriProduct}/${id}`, {
+    const resp = await fetch(`${uriProducts}/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -93,7 +67,7 @@ export const editProducts = async (id, productEdit) => {
 
 export const deleteProducts = async (id) => {
   try {
-    const respuesta = await fetch(`${uriProduct}/${id}`, {
+    const respuesta = await fetch(`${uriProducts}/${id}`, {
       method: "DELETE",
     });
     return respuesta;

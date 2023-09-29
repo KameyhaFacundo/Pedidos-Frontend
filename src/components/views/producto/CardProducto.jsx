@@ -1,27 +1,35 @@
-import Button from 'react-bootstrap/Button';
-import { useState } from 'react';
-import Modal from 'react-bootstrap/Modal';
-import { ModalHeader } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
-import { searchProductId } from '../../helpers/serchproduct';
+import { Button, Card } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 
-const CardProducto = () => {
-    const { id } = useParams();
-    console.log(id)
-    console.log({idParmas: id})
-    const searchProduct  = searchProductId(Number(id));
-    const {name,price,images,category,description} = searchProduct
+
+const CardProducto = ({product}) => {
+ 
+  
 
     return (
-        <>
-        <p>{name}</p>
-        <p>{price}</p>
-        <img src={images}/>
-        <p>{category}</p>
-        <p>{description}</p>
-      </>
+        <Card style={{width: '400px'}}>
+          <Card.Img width={360} height={400} variant='top' src={product.images} />
+          <Card.Body>
+          <Card.Title>{product.name}</Card.Title>
+          <Card.Text>
+            {product.description}
+          </Card.Text>
+          <Button href={`/productos/${product.id}`}>
+            Ver mas
+            </Button>
+          </Card.Body>
+        </Card>
     )
   }
-  
+  CardProducto.propTypes = {
+    product: PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
+      images: PropTypes.string.isRequired,
+      category: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+    }).isRequired,
+  };
   export default CardProducto

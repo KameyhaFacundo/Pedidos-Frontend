@@ -12,7 +12,8 @@ import Footer from "./components/common/Footer";
 import Pedidos from "./components/views/Pedidos";
 import Administrador from "./components/views/Administrador";
 import ListProduct    from './components/common/ListProduct'
-import CardProducto from "./components/views/producto/CardProducto";
+import DetailProduct from "./components/views/producto/DetailProduct";
+
 
 function App() {
   return (
@@ -43,7 +44,7 @@ function App() {
             path="/lista-de-producto"
             element={<ListProduct/>}
           ></Route>
-          <Route exact path="/productos/:id" component={CardProducto} />
+          <Route exact path="/productos/:id" element={<DetailProduct/>} />
           <Route exact path="/pedidos" element={<Pedidos></Pedidos>}></Route>
           <Route exact path="*" element={<Error404></Error404>}></Route>
         </Routes>

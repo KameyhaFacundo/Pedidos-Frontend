@@ -3,8 +3,10 @@ import { useForm } from "react-hook-form";
 
 import Swal from "sweetalert2";
 import { createProducts, obtainProducts } from "../../helpers/queries";
+import { useNavigate } from "react-router-dom";
 
 const CrearProducto = () => {
+  const navegacion = useNavigate();
   const {
     register,
     handleSubmit,
@@ -34,6 +36,7 @@ const CrearProducto = () => {
             "success"
           );
           reset();
+          navegacion("/administracion");
         }
       })
       .catch((error) => {
@@ -55,37 +58,66 @@ const CrearProducto = () => {
           <Form.Label>Producto*</Form.Label>
           <Form.Control
             type="text"
+            required
             placeholder="Ej: Cafe"
             {...register("nameProduct", {
               required: "ingrese un producto valido",
+              minLength: {
+                value: 2,
+                message: "Debe ingresar como minimo 2 caracteres",
+              },
+              maxLength: {
+                value: 50,
+                message: "Debe ingresar como maximo 50 caracteres",
+              },
             })}
           />
+          <Form.Text className="text-danger">
+            {errors.nameProduct?.message}
+          </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formNombreProdcuto">
           <Form.Label>descripcion del producto</Form.Label>
           <Form.Control
             as="textarea"
             type="text"
-            placeholder="Leave a comment here"
-            {...register("descripction", {
-              required: "ingrese un producto valido",
+            required
+            placeholder="ingrese una descripcion del producto"
+            {...register("description", {
+              required: "ingrese una descripcion valida",
             })}
           />
+
+          <Form.Text className="text-danger">
+            {errors.description?.message}
+          </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formPrecio">
           <Form.Label>Precio*</Form.Label>
           <Form.Control
             type="number"
+            required
             placeholder="Ej: 50"
             {...register("price", {
               required: "ingrese un precio valido",
+              min: {
+                value: 1,
+                message: "El precio como minimo debe ser de $1",
+              },
+              max: {
+                value: 10000,
+                message:
+                  "El precio del producto como maximo debe ser de $10000",
+              },
             })}
           />
+          <Form.Text className="text-danger">{errors.price?.message}</Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formImagen">
           <Form.Label>Imagen URL*</Form.Label>
           <Form.Control
             type="text"
+            required
             placeholder="Ej: https://www.pexels.com/es-es/vans-en-blanco-y-negro-fuera-de-la-decoracion-para-colgar-en-la-pared-1230679/"
             {...register("image", {
               required: "La url de la imagen es obligatoria",
@@ -95,12 +127,14 @@ const CrearProducto = () => {
               },
             })}
           />
+          <Form.Text className="text-danger">{errors.image?.message}</Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formPrecio">
           <Form.Label>Categoria*</Form.Label>
           <Form.Select
+            required
             {...register("category", {
-              required: "ingrese un producto valido",
+              required: "debe seleccionar una categoria",
             })}
           >
             <option value="">Seleccione una opcion</option>
@@ -109,6 +143,9 @@ const CrearProducto = () => {
             <option value="picadas">Picadas</option>
             <option value="bebidas">Bebidas</option>
           </Form.Select>
+          <Form.Text className="text-danger">
+            {errors.category?.message}
+          </Form.Text>
         </Form.Group>
         <Button variant="primary" type="submit">
           Guardar

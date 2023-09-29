@@ -13,7 +13,6 @@ import Pedidos from "./components/views/Pedidos";
 import Administrador from "./components/views/Administrador";
 import ListProduct    from './components/common/ListProduct'
 import DetailProduct from "./components/views/producto/DetailProduct";
-
 import { useState } from "react";
 
 function App() {

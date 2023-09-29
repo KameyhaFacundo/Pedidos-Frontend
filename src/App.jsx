@@ -14,15 +14,32 @@ import Administrador from "./components/views/Administrador";
 import ListProduct    from './components/common/ListProduct'
 import DetailProduct from "./components/views/producto/DetailProduct";
 
+import { useState } from "react";
 
 function App() {
+  const userNoLogueado = {
+    id: 0,
+    rol: false,
+  };
+  const userOnline =
+    JSON.parse(sessionStorage.getItem("usuarioLogeado")) || userNoLogueado;
+
+  const [activeUser, setActiveUser] = useState(userOnline);
   return (
     <>
       <BrowserRouter>
-        <Menu></Menu>
+        <Menu setActiveUser={setActiveUser} activeUser={activeUser}></Menu>
         <Routes>
-          <Route exact path="/" element={<Inicio></Inicio>}></Route>
-          <Route exact path="/login" element={<Login></Login>}></Route>
+          <Route
+            exact
+            path="/"
+            element={<Inicio activeUser={activeUser}></Inicio>}
+          ></Route>
+          <Route
+            exact
+            path="/login"
+            element={<Login setActiveUser={setActiveUser}></Login>}
+          ></Route>
           <Route
             exact
             path="/acerca-de-nosotros"

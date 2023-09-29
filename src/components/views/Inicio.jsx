@@ -3,7 +3,6 @@ import { Carousel, Form, FormGroup, Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { listProducts } from "../helpers/queries";
-import { listUsers } from "../helpers/queries";
 import CardProductos from "./producto/CardProductos";
 import { Link } from "react-router-dom";
 

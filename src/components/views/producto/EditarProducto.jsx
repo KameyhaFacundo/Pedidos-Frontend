@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { editProducts, obtainProducts } from "../../helpers/queries";
 import Swal from "sweetalert2";
 
 const EditarProducto = () => {
+  const navegacion = useNavigate();
   const { id } = useParams();
 
   const {
@@ -43,6 +44,7 @@ const EditarProducto = () => {
             "success"
           );
         }
+        navegacion("/administracion");
       })
       .catch((error) => {
         console.log(error);
@@ -111,10 +113,10 @@ const EditarProducto = () => {
             })}
           >
             <option value="">Seleccione una opcion</option>
-            <option value="bebida caliente">Bebida caliente</option>
-            <option value="bebida fria">Bebida fria</option>
-            <option value="dulce">Dulce</option>
-            <option value="salado">Salado</option>
+            <option value="sandwiches">sandwiches</option>
+            <option value="pizzas">pizzas</option>
+            <option value="picadas">picadas</option>
+            <option value="bebidas">bebidas</option>
           </Form.Select>
         </Form.Group>
         <Button variant="primary" type="submit">

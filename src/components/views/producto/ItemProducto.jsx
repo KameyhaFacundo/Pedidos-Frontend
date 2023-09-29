@@ -1,9 +1,6 @@
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import {
-  deleteProducts,
-  tolistProducts,
-} from "../../helpers/queries.js";
+import { deleteProducts, tolistProducts } from "../../helpers/queries.js";
 import Swal from "sweetalert2";
 
 const ItemProducto = ({
@@ -26,7 +23,7 @@ const ItemProducto = ({
       cancelButtonText: "Cancelar",
     }).then((result) => {
       if (result.isConfirmed) {
-        deleteProducts(id).then((answer) => {
+        deleteProducts(_id).then((answer) => {
           if (answer.status === 200) {
             tolistProducts().then((answer) => {
               console.log(answer);
@@ -62,7 +59,7 @@ const ItemProducto = ({
         <Link className="btn btn-warning" to={`/administracion/editar/${_id}`}>
           Editar
         </Link>
-        <Button variant="danger" onClick={deleteProducts}>
+        <Button variant="danger" onClick={deleteProductAdmin}>
           Eliminar
         </Button>
       </td>

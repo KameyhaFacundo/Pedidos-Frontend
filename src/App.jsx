@@ -14,6 +14,7 @@ import Administrador from "./components/views/Administrador";
 import EditarProducto from "./components/views/producto/EditarProducto";
 import CrearProducto from "./components/views/producto/CrearProducto";
 import { useState } from "react";
+import ProductAdmin from "./components/views/ProductAdmin";
 
 function App() {
   const userNoLogueado = {
@@ -52,8 +53,8 @@ function App() {
           <Route exact path="/registro" element={<Registro></Registro>}></Route>
           <Route
             exact
-            path="/administracion"
-            element={<Administrador></Administrador>}
+            path="/administracion/pedido"
+            element={<ProductAdmin></ProductAdmin>}
           ></Route>
           <Route
             exact

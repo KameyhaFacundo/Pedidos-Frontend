@@ -2,34 +2,12 @@ import React from "react";
 import { Container, Button, Nav, Navbar } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { listUsers } from "../helpers/queries";
 
 const Menu = ({ setActiveUser, activeUser }) => {
   const [users, setUsers] = useState([]);
   const [admin, setAdmin] = useState([]);
 
   const navigation = useNavigate();
-
-  useEffect(() => {
-    listUsers().then((user) => {
-      setUsers(user);
-    });
-  }, []);
-
-  useEffect(() => {
-    users.map((searchUser) => {
-      if (searchUser.id === activeUser) {
-        setAdmin(searchUser.rol);
-      }
-    });
-  }, [users]);
-
-  const logOut = () => {
-    setActiveUser(0);
-    sessionStorage.removeItem("usuarioLogeado");
-    window.location.reload();
-    navigation("/");
-  };
 
   return (
     <>

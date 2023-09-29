@@ -1,8 +1,6 @@
 import { Button, Container, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import { createUser } from "../helpers/queries.js";
-import Swal from "sweetalert2";
 import { useEffect, useState } from "react";
 
 const Registro = () => {
@@ -21,48 +19,6 @@ const Registro = () => {
     watch,
     reset,
   } = useForm();
-
-  const onSubmit = (user) => {
-    user.rol = "usuario";
-    setShowSpinner(true);
-    createUser(user)
-      .then((resp) => {
-
-        if (!resp.ok) {
-          setShowSpinner(false);
-          return Swal.fire({
-            icon: "error",
-            title:
-              "<h5>Ya existe un usuario con ese apodo o correo electrónico</h5>",
-            text: "prueba con otro apodo o correo electrónico.",
-          });
-        }
-
-        reset();
-        Swal.fire({
-          icon: "success",
-          title: "<h5>Usuario registrado</h5>",
-          text: "Redirigiendo para iniciar sesion",
-          showConfirmButton: false,
-          timer: 2500,
-          didOpen: () => {
-            setTimeout(() => {
-              navigate("/login");
-            }, 2500);
-          },
-        });
-        setShowSpinner(false);
-      })
-      .catch((error) => {
-        setShowSpinner(false);
-        console.log(error);
-        Swal.fire({
-          icon: "error",
-          title: "<h5>Hubo un error</h5>",
-          text: "Intentalo mas tarde",
-        });
-      });
-  };
 
   return (
     <Container className="my-4">

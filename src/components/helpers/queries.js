@@ -1,4 +1,5 @@
 const uriProducts = import.meta.env.VITE_API_PRODUCTO;
+const uriUser = import.meta.env.VITE_API_USUARIO;
 
 export const tolistProducts = async () => {
   try {
@@ -62,5 +63,25 @@ export const deleteProducts = async (id) => {
     return respuesta;
   } catch (error) {
     console.log(error);
+
+export const login = async (user) => {
+  try {
+    const respuesta = await fetch(uriUser, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    });
+    const datos = await respuesta.json();
+    return {
+      status: respuesta.status,
+      mensaje: datos.mensaje,
+      user: datos.nombre,
+      uid: datos.uid,
+    };
+  } catch (error) {
+    return;
+
   }
 };

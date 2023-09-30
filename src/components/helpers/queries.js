@@ -38,23 +38,23 @@ export const createUser = async (user) => {
   }
 };
 
-export const login = async (usuario) =>{
-    try {
-    const respuesta = await fetch(uriUsuario, {
+export const login = async (user) => {
+  try {
+    const respuesta = await fetch(uriUser, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(usuario),
+      body: JSON.stringify(user),
     });
     const datos = await respuesta.json();
     return {
       status: respuesta.status,
       mensaje: datos.mensaje,
-      usuario: datos.nombre,
+      user: datos.nombre,
       uid: datos.uid,
     };
-    } catch (error) {
-        return;
+  } catch (error) {
+    return;
   }
 };

@@ -1,24 +1,21 @@
-import React from 'react';
-import Card from 'react-bootstrap/Card';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import "../../styles/acercaDeNosotros.css"
-
-import Isaias from  '../../assets/Isaias.png';
-import Sergio from  '../../assets/Sergio.png';
-import Facundo from  '../../assets/Facundo.png';
-import Daniela from  '../../assets/Daniela.png';
-import Jose from  '../../assets/Jose.png';
-import Mauro from  '../../assets/Mauro.png';
-import GitIcono from  '../../assets/git.png';
-import Linkedin from  '../../assets/linkedin.png';
+import React from "react";
+import Card from "react-bootstrap/Card";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import "../../styles/acercaDeNosotros.css";
+import Isaias from "../../assets/Isaias.png";
+import Sergio from "../../assets/Sergio.png";
+import Facundo from "../../assets/Facundo.png";
+import Daniela from "../../assets/Daniela.png";
+import Jose from "../../assets/Jose.png";
+import Mauro from "../../assets/Mauro.png";
+import GitIcono from "../../assets/git.png";
+import Linkedin from "../../assets/linkedin.png";
 
 const GrupoCards = ({ imageSrc, Apellido, Nombre, socialLinks }) => {
   return (
-    <div
-      className="d-flex justify-content-center align-items-center min-H3"
-    >
-      <Card className='w80'>
+    <div className="d-flex justify-content-center align-items-center min-H3">
+      <Card className="w80">
         <Row className="align-items-center">
           <Col sm={4}>
             <Card.Img variant="top" src={imageSrc} />
@@ -33,11 +30,7 @@ const GrupoCards = ({ imageSrc, Apellido, Nombre, socialLinks }) => {
               <div className="d-flex flex-column">
                 {socialLinks.map((link, index) => (
                   <a key={index} href={link.url} className="mb-2">
-                    <img
-                      src={link.icon}
-                      alt={link.name}
-                      className='img50'
-                    />
+                    <img src={link.icon} alt={link.name} className="img50" />
                   </a>
                 ))}
               </div>
@@ -131,15 +124,9 @@ const Participantes = () => {
 
   return (
     <>
-      <div className="text-center">
-        <h1>TEAM 1 </h1>
-      </div>
       <div>
         {people.map((person) => (
-          <div
-            key={person.id}
-            className="mb-4"
-          >
+          <div key={person.id} className="mb-4">
             <GrupoCards
               Apellido={person.Apellido}
               Nombre={person.Nombre}

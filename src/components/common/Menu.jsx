@@ -3,7 +3,6 @@ import { Container, Button, Nav, Navbar } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { listUsers } from "../helpers/queries";
-import logo from "../../assets/Isaias.png";
 
 const Menu = ({ setActiveUser, activeUser }) => {
   const [users, setUsers] = useState([]);
@@ -75,8 +74,6 @@ const Menu = ({ setActiveUser, activeUser }) => {
                       Registro
                     </Button>
                   </Link>
-
-                  {/* <Login className="h-25" /> */}
                 </>
               ) : activeUser.rol === "administrador" ? (
                 <>
@@ -87,12 +84,6 @@ const Menu = ({ setActiveUser, activeUser }) => {
                       </Button>
                     </Link>
                   </Nav>
-                  {/* <Link to={"/pedido"} className="text-center">
-                    <Button className="buttonx mx-1" variant="secondary">
-                      Mis pedidos
-                    </Button>
-                  </Link> */}
-
                   <Nav>
                     <Link to={"/acerca-de-nosotros"} className="text-center">
                       <Button className="mx-1 custom-button" type="submit">

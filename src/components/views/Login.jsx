@@ -34,7 +34,7 @@ const Login = ({ setActiveUser }) => {
     <Container className="mainSection">
       <Card className="my-5">
         <Card.Header as="h5" className="text-center">
-          Iniciar sesion
+          Iniciar sesión
         </Card.Header>
         <Card.Body>
           <Form onSubmit={handleSubmit(onSubmit)}>
@@ -76,7 +76,11 @@ const Login = ({ setActiveUser }) => {
                 {errors.password?.message}
               </Form.Text>
             </Form.Group>
-            <Button variant="primary" type="submit">
+            <Button
+              variant="primary"
+              type="submit"
+              className="bg-orange border-0"
+            >
               Ingresar
             </Button>
           </Form>

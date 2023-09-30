@@ -14,7 +14,7 @@ import Linkedin from "../../assets/linkedin.png";
 
 const GrupoCards = ({ imageSrc, Apellido, Nombre, socialLinks }) => {
   return (
-    <div className="d-flex justify-content-center align-items-center min-H3">
+    <div className="d-flex justify-content-center align-items-center min-H3 my-5">
       <Card className="w80">
         <Row className="align-items-center">
           <Col sm={4}>

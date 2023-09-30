@@ -36,7 +36,7 @@ const CrearProducto = () => {
             "success"
           );
           reset();
-          navegacion("/administracion");
+          navegacion("/administracion/pedido");
         }
       })
       .catch((error) => {

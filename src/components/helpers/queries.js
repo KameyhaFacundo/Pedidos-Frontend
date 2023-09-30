@@ -1,4 +1,4 @@
-const uriProducts = "http://localhost:4000/api/product";
+const uriProducts = import.meta.env.VITE_API_PRODUCTO;
 
 export const listProducts = async () => {
   try {

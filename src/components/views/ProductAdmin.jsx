@@ -10,7 +10,6 @@ const ProductAdmin = () => {
   useEffect(() => {
     tolistProducts().then((answerProducts) => {
       if (answerProducts) {
-        // actualizar el estado
         setProducts(answerProducts);
       } else {
         Swal.fire("An error occurred", "Try again", "error");

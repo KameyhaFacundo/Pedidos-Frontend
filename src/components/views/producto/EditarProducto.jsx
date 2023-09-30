@@ -44,7 +44,7 @@ const EditarProducto = () => {
             "success"
           );
         }
-        navegacion("/administracion");
+        navegacion("/administracion/pedido");
       })
       .catch((error) => {
         console.log(error);

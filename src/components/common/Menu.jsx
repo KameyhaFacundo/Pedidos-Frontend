@@ -3,6 +3,7 @@ import { Container, Button, Nav, Navbar } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { listUsers } from "../helpers/queries";
+import Swal from "sweetalert2";
 
 const Menu = ({ setActiveUser, activeUser }) => {
   const [users, setUsers] = useState([]);
@@ -11,18 +12,21 @@ const Menu = ({ setActiveUser, activeUser }) => {
   const navigation = useNavigate();
 
   useEffect(() => {
+    if (!activeUser || !Array.isArray(users)) {
+      return;
+    }
+    const searchUser = users.find((user) => user.id === activeUser);
+
+    if (searchUser) {
+      setAdmin(searchUser.rol);
+    }
+  }, [users, activeUser]);
+
+  useEffect(() => {
     listUsers().then((user) => {
       setUsers(user);
     });
   }, []);
-
-  useEffect(() => {
-    users.map((searchUser) => {
-      if (searchUser.id === activeUser) {
-        setAdmin(searchUser.rol);
-      }
-    });
-  }, [users]);
 
   const logOut = () => {
     setActiveUser(0);

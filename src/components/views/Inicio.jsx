@@ -19,13 +19,6 @@ const Inicio = ({ activeUser }) => {
     reset,
   } = useForm();
 
-  useEffect(() => {
-    listProducts().then((answer) => {
-      setProducts(answer);
-      setProductsFilter(answer);
-    });
-  }, []);
-
   const searchProduct = (term) => {
     const filterProduct = products.filter((product) =>
       product.nombreProducto.toLowerCase().includes(term.toLowerCase())
@@ -33,6 +26,20 @@ const Inicio = ({ activeUser }) => {
     setProductsFilter(filterProduct);
   };
 
+  useEffect(() => {
+    listProducts().then((answer) => {
+      if (answer) {
+        setProducts(answer);
+        setProductsFilter(answer);
+      } else {
+        Swal.fire(
+          "Ocurrio un error",
+          "Intente realizar esta operación mas tarde",
+          "error"
+        );
+      }
+    });
+  }, []);
   return (
     <>
       <div className="carrousel-container">

@@ -6,6 +6,7 @@ import { listProducts } from "../helpers/queries";
 import { listUsers } from "../helpers/queries";
 import CardProductos from "./producto/CardProductos";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Inicio = ({ activeUser }) => {
   const [products, setProducts] = useState([]);

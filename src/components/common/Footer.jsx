@@ -8,7 +8,7 @@ function Footer() {
         <section className="col-12 col-lg-4 col-sm-12 mb-4 mt-4">
           <img
             className="w-50"
-            src="https://res.cloudinary.com/dgzimgpia/image/upload/v1695305076/logo3_lm4xzi.png"
+            src="https://res.cloudinary.com/dgzimgpia/image/upload/v1696038559/logo_shsofa.png"
             alt="logo"
             onError={(e) => {
               e.target.src = "https://i.stack.imgur.com/lnYep.png";

@@ -3,7 +3,7 @@ import { Container, Button, Nav, Navbar } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { listUsers } from "../helpers/queries";
-import Swal from "sweetalert2";
+import logo from "../../assets/Isaias.png";
 
 const Menu = ({ setActiveUser, activeUser }) => {
   const [users, setUsers] = useState([]);
@@ -47,7 +47,7 @@ const Menu = ({ setActiveUser, activeUser }) => {
             <Link to={"/"}>
               <img
                 className="login"
-                src="https://res.cloudinary.com/dgzimgpia/image/upload/v1695305076/logo3_lm4xzi.png"
+                src="https://res.cloudinary.com/dgzimgpia/image/upload/v1696038559/logo_shsofa.png"
                 alt="logo"
                 onError={(e) => {
                   e.target.src = "https://i.stack.imgur.com/lnYep.png";
@@ -78,7 +78,7 @@ const Menu = ({ setActiveUser, activeUser }) => {
 
                   {/* <Login className="h-25" /> */}
                 </>
-              ) : activeUser.rol === true ? (
+              ) : activeUser.rol === "administrador" ? (
                 <>
                   <Nav>
                     <Link to={"/administrador"} className="text-center">

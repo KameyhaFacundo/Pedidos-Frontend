@@ -49,26 +49,26 @@ const Inicio = ({ activeUser }) => {
             <div className="image-container">
               <img
                 className="d-block w-100"
-                src="https://res.cloudinary.com/dgzimgpia/image/upload/v1695263656/istockphoto-508219808-170667a_hofcum.jpg"
+                src="https://res.cloudinary.com/dgzimgpia/image/upload/v1696039061/EDIDOS_ROLLING_zg3dzc.png"
                 alt="Primera imagen"
               />
             </div>
             <Carousel.Caption>
-              <h2 className="title">Restaurante el 10</h2>
-              <p className="subtitle">Hace tu pedido facil y rapido!!!</p>
+              <h2 className="title">BIENVENIDOS</h2>
+              <p className="subtitle">Hace tu pedido facil y rapido!</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
             <div className="image-container">
               <img
                 className="d-block w-100"
-                src="https://res.cloudinary.com/dgzimgpia/image/upload/v1693144054/cld-sample-4.jpg"
+                src="https://res.cloudinary.com/dgzimgpia/image/upload/v1696039061/EDIDOS_ROLLING_zg3dzc.png"
                 alt="Segunda imagen"
               />
             </div>
             <Carousel.Caption>
-              <h2 className="title">Restaurante el 10</h2>
-              <p className="subtitle">Hace tu pedido facil y rapido!!!</p>
+              <h2 className="title">BIENVENIDOS</h2>
+              <p className="subtitle">Hace tu pedido facil y rapido!</p>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>

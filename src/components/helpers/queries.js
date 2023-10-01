@@ -1,6 +1,17 @@
 const uriUser = import.meta.env.VITE_API_USUARIO;
 const uriProducts = import.meta.env.VITE_API_PRODUCTOS;
 
+export const obtenerProduct = async (id) => {
+  try {
+    console.log(id);
+    const resp = await fetch(`${uriProducts}/${id}`);
+    const data = await resp.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const listUsers = async () => {
   try {
     const resp = await fetch(uriUser);

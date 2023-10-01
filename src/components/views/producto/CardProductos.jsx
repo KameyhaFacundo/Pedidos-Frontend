@@ -36,7 +36,7 @@ function CardProductos({ products }) {
                 <Card.Body className="card-body-size d-flex flex-column justify-content-center">
                   <div className="d-flex justify-content-between">
                     <Card.Text>{product.nameProduct}</Card.Text>
-                    <Card.Text>{product.category}</Card.Text>
+
                     <Card.Title className="custom-card-size">
                       {"$" + product.price}
                     </Card.Title>
@@ -46,10 +46,7 @@ function CardProductos({ products }) {
                       Comprar
                     </Button>
                   </Link>
-                  <Link
-                    className="w-100"
-                    to={"/detalle-de-producto/" + product.id}
-                  >
+                  <Link className="w-100" to={"/detalle/" + product.id}>
                     <Button variant="warning" className="mb-1 w-100">
                       Ver más
                     </Button>

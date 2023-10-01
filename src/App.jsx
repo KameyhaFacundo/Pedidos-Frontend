@@ -11,8 +11,6 @@ import Menu from "./components/common/Menu";
 import Footer from "./components/common/Footer";
 import Pedidos from "./components/views/Pedidos";
 import Administrador from "./components/views/Administrador";
-import ListProduct from "./components/common/ListProduct";
-import DetailProduct from "./components/views/producto/DetailProduct";
 import { useState } from "react";
 import ProductAdmin from "./components/views/ProductAdmin";
 import CrearProducto from "./components/views/producto/CrearProducto";
@@ -49,8 +47,10 @@ function App() {
           ></Route>
           <Route
             exact
-            path="/detalle-de-producto"
-            element={<DetalleProducto></DetalleProducto>}
+            path="/detalle/:id"
+            element={
+              <DetalleProducto activeUser={activeUser}></DetalleProducto>
+            }
           ></Route>
           <Route exact path="/registro" element={<Registro></Registro>}></Route>
           <Route
@@ -67,21 +67,16 @@ function App() {
             exact
             path="/administracion/editar/:id"
             element={<EditarProducto></EditarProducto>}
-          ></Route>{" "}
+          ></Route>
           <Route
             exact
             path="/administracion/crear"
             element={<CrearProducto></CrearProducto>}
           ></Route>
-          <Route
-            exact
-            path="/lista-de-producto"
-            element={<ListProduct />}
-          ></Route>
-          <Route exact path="/productos/:id" element={<DetailProduct />} />
           <Route exact path="/pedidos" element={<Pedidos></Pedidos>}></Route>
           <Route exact path="*" element={<Error404></Error404>}></Route>
         </Routes>
+
         <Footer></Footer>
       </BrowserRouter>
     </>

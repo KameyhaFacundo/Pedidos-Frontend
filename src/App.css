@@ -2,6 +2,7 @@
 @import url(./styles/menu.css);
 @import url(./styles/footer.css);
 @import url(./styles/cardProductos.css);
+@import url(./styles/cardProductos.css);
 
 :root {
   --color-primary: #eff5f5;
@@ -34,4 +35,8 @@ footer {
 
 .color-orange {
   color: #eb6440;
+}
+.card-detalle {
+  border-color: black;
+  border: 1px;
 }

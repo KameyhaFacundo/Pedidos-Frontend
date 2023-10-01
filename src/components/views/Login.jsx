@@ -23,7 +23,7 @@ const Login = ({ setActiveUser }) => {
 
         sessionStorage.setItem("usuarioLogueado", JSON.stringify(answer));
         setActiveUser(answer);
-        navegacion("/administrador");
+        navegacion("/");
       } else {
         Swal.fire("Ocurrio un error", "Email o password incorrecto", "error");
       }

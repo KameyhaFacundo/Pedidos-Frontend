@@ -15,11 +15,13 @@ import { useState } from "react";
 import ProductAdmin from "./components/views/ProductAdmin";
 import CrearProducto from "./components/views/producto/CrearProducto";
 import EditarProducto from "./components/views/producto/EditarProducto";
+import EncapsularRutas from "./components/routes/EncapsularRutas";
+import RutasProtegidas from "./components/routes/RutasProtegidas";
 
 function App() {
   const userNoLogueado = {
     id: 0,
-    rol: false,
+    rol: "usuario",
   };
   const userOnline =
     JSON.parse(sessionStorage.getItem("usuarioLogeado")) || userNoLogueado;
@@ -53,12 +55,21 @@ function App() {
             }
           ></Route>
           <Route exact path="/registro" element={<Registro></Registro>}></Route>
-          <Route
+          {/* <Route
             exact
             path="/administracion"
             element={<Administrador></Administrador>}
-          ></Route>
+          ></Route> */}
           <Route
+            path="/administracion/*"
+            element={
+              <EncapsularRutas>
+                <RutasProtegidas />
+              </EncapsularRutas>
+            }
+          ></Route>
+
+          {/* <Route
             exact
             path="/administracion/pedido"
             element={<ProductAdmin></ProductAdmin>}
@@ -72,7 +83,7 @@ function App() {
             exact
             path="/administracion/crear"
             element={<CrearProducto></CrearProducto>}
-          ></Route>
+          ></Route> */}
           <Route exact path="/pedidos" element={<Pedidos></Pedidos>}></Route>
           <Route exact path="*" element={<Error404></Error404>}></Route>
         </Routes>

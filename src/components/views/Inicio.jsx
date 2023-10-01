@@ -22,7 +22,7 @@ const Inicio = ({ activeUser }) => {
 
   const searchProduct = (term) => {
     const filterProduct = products.filter((product) =>
-      product.nombreProducto.toLowerCase().includes(term.toLowerCase())
+      product.nameProduct.toLowerCase().startsWith(term.toLowerCase())
     );
     setProductsFilter(filterProduct);
   };
@@ -88,7 +88,7 @@ const Inicio = ({ activeUser }) => {
           </FormGroup>
         </Form>
       </section>
-      <CardProductos products={productsfilter} />
+      <CardProductos products={productsfilter} activeUser={activeUser} />
 
       {activeUser.id === 0 && (
         <div>

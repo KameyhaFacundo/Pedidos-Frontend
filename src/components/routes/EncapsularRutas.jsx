@@ -3,11 +3,11 @@ import { Navigate } from "react-router-dom";
 
 const EncapsularRutas = ({ children }) => {
   const usuarioLogueado =
-    JSON.parse(sessionStorage.getItem("usuarioLogeado")) || 0;
-  if (usuarioLogueado.id !== 0 && usuarioLogueado.rol === "administrador") {
-    return children;
+    JSON.parse(sessionStorage.getItem("usuarioLogueado")) || null;
+  if (!usuarioLogueado) {
+    return <Navigate to={"/login"}></Navigate>;
   } else {
-    return <Navigate to={"/"}></Navigate>;
+    return children;
   }
 };
 

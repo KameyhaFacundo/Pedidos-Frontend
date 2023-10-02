@@ -9,12 +9,7 @@ import DetalleProducto from "./components/views/DetalleProducto";
 import Error404 from "./components/views/Error404";
 import Menu from "./components/common/Menu";
 import Footer from "./components/common/Footer";
-import Pedidos from "./components/views/Pedidos";
-import Administrador from "./components/views/Administrador";
 import { useState } from "react";
-import ProductAdmin from "./components/views/ProductAdmin";
-import CrearProducto from "./components/views/producto/CrearProducto";
-import EditarProducto from "./components/views/producto/EditarProducto";
 import EncapsularRutas from "./components/routes/EncapsularRutas";
 import RutasProtegidas from "./components/routes/RutasProtegidas";
 import Order from "./components/views/Order";
@@ -56,37 +51,16 @@ function App() {
             }
           ></Route>
           <Route exact path="/registro" element={<Registro></Registro>}></Route>
-          {/* <Route
-            exact
-            path="/administracion"
-            element={<Administrador></Administrador>}
-          ></Route> */}
           <Route
-            path="/administracion/*"
+            exact
+            path="/administrador/*"
             element={
               <EncapsularRutas>
                 <RutasProtegidas />
               </EncapsularRutas>
             }
           ></Route>
-
-          {/* <Route
-            exact
-            path="/administracion/pedido"
-            element={<ProductAdmin></ProductAdmin>}
-          ></Route>
-          <Route
-            exact
-            path="/administracion/editar/:id"
-            element={<EditarProducto></EditarProducto>}
-          ></Route>
-          <Route
-            exact
-            path="/administracion/crear"
-            element={<CrearProducto></CrearProducto>}
-          ></Route> */}
           <Route exact path="/order" element={<Order />}></Route>
-          <Route exact path="/pedidos" element={<Pedidos></Pedidos>}></Route>
           <Route exact path="*" element={<Error404></Error404>}></Route>
         </Routes>
 

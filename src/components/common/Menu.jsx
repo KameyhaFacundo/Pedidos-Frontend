@@ -56,83 +56,6 @@ const Menu = ({ setActiveUser, activeUser }) => {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav buttons-nav" />
           <Navbar.Collapse id="responsive-navbar-nav collapsex buttons-nav">
-            {/* <Nav className="me-auto buttons-nav">
-              {activeUser.id === 0 ? (
-                <>
-                  <Link to={"/acerca-de-nosotros"} className="text-center">
-                    <Button
-                      className="mx-1 custom-button-acerc mt-2"
-                      type="submit"
-                    >
-                      Acerca de Nosotros
-                    </Button>
-                  </Link>
-                  <Link to={"/login"} className="text-center">
-                    <Button className="mx-1 color-button mt-2" type="submit">
-                      Iniciar sesión
-                    </Button>
-                  </Link>
-                  <Link to={"/registro"} className="text-center">
-                    <Button className="mx-1 color-button my-2" type="submit">
-                      Registro
-                    </Button>
-                  </Link>
-                </>
-              ) : activeUser.rol === "administrador" ? (
-                <>
-                  <Nav>
-                    <Link to={"/administracion"} className="text-center">
-                      <Button className="mx-1 color-button" type="submit">
-                        Administrador
-                      </Button>
-                    </Link>
-                  </Nav>
-                  <Nav>
-                    <Link to={"/acerca-de-nosotros"} className="text-center">
-                      <Button
-                        className="mx-1 custom-button-acerc"
-                        type="submit"
-                      >
-                        Acerca de Nosotros
-                      </Button>
-                    </Link>
-                    <Link to={"/administracion"} className="mr-5 text-center">
-                      <Button
-                        className="mx-1 mr-5 close-button"
-                        onClick={() => {
-                          logOut();
-                        }}
-                      >
-                        Cerrar sesión
-                      </Button>
-                    </Link>
-                  </Nav>
-                </>
-              ) : (
-                <>
-                  <Link to={"/acerca-de-nosotros"} className="text-center">
-                    <Button className="mx-1 custom-button-acerc" type="submit">
-                      Acerca de Nosotros
-                    </Button>
-                  </Link>
-                  <Link to={"/pedido"} className="text-center">
-                    <Button variant="secondary" className="mx-1" type="submit">
-                      Mis Pedidos
-                    </Button>
-                  </Link>
-                  <Link to={"/"} className="mr-5 text-center">
-                    <Button
-                      className=" mx-1 mr-5 close-button"
-                      onClick={() => {
-                        logOut();
-                      }}
-                    >
-                      Cerrar sesión
-                    </Button>
-                  </Link>
-                </>
-              )}
-            </Nav> */}
             <Nav className="me-auto buttons-nav">
               {(() => {
                 if (activeUser.id === 0) {
@@ -168,13 +91,6 @@ const Menu = ({ setActiveUser, activeUser }) => {
                   return (
                     <>
                       <Nav>
-                        <Link to={"/administracion"} className="text-center">
-                          <Button className="mx-1 color-button" type="submit">
-                            Administrador
-                          </Button>
-                        </Link>
-                      </Nav>
-                      <Nav>
                         <Link
                           to={"/acerca-de-nosotros"}
                           className="text-center"
@@ -186,10 +102,14 @@ const Menu = ({ setActiveUser, activeUser }) => {
                             Acerca de Nosotros
                           </Button>
                         </Link>
-                        <Link
-                          to={"/administracion"}
-                          className="mr-5 text-center"
-                        >
+                        <Nav>
+                          <Link to={"/administrador"} className="text-center">
+                            <Button className="mx-1 color-button" type="submit">
+                              Administrador
+                            </Button>
+                          </Link>
+                        </Nav>
+                        <Link className="mr-5 text-center">
                           <Button
                             className="mx-1 mr-5 close-button"
                             onClick={() => {
@@ -213,7 +133,14 @@ const Menu = ({ setActiveUser, activeUser }) => {
                           Acerca de Nosotros
                         </Button>
                       </Link>
-                      <Link to={"/"} className="mr-5 text-center">
+                      <Nav>
+                        <Link to={"/order"} className="text-center">
+                          <Button className="mx-1 color-button" type="submit">
+                            Pedidos
+                          </Button>
+                        </Link>
+                      </Nav>
+                      <Link className="mr-5 text-center">
                         <Button
                           className=" mx-1 mr-5 close-button"
                           onClick={() => {

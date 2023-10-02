@@ -26,7 +26,6 @@ const ItemProducto = ({
         deleteProducts(_id).then((answer) => {
           if (answer.status === 200) {
             tolistProducts().then((answer) => {
-              console.log(answer);
               setProducts(answer);
             });
             Swal.fire(
@@ -56,10 +55,17 @@ const ItemProducto = ({
       </td>
       <td>{category}</td>
       <td>
-        <Link className="btn btn-warning" to={`/administracion/editar/${_id}`}>
+        <Link
+          className="btn btn-warning mb-1 text-center bg-orange border-0 px-3"
+          to={`/administrador/editar/${_id}`}
+        >
           Editar
         </Link>
-        <Button variant="danger" onClick={deleteProductAdmin}>
+        <Button
+          variant="danger"
+          className="text-center px-2 color-green border-0"
+          onClick={deleteProductAdmin}
+        >
           Eliminar
         </Button>
       </td>

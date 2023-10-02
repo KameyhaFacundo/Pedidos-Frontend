@@ -1,5 +1,8 @@
 const uriUser = import.meta.env.VITE_API_LOGIN;
 const uriProducts = import.meta.env.VITE_API_PRODUCTOS;
+const uriUsuario = import.meta.env.VITE_API_USUARIO;
+const crearUser = import.meta.env.VITE_API_CREAR_USUARIO;
+const uriPedidos = import.meta.env.VITE_API_PEDIDOS;
 
 export const obtenerProduct = async (id) => {
   try {
@@ -53,6 +56,7 @@ export const login = async (user) => {
       mensaje: datos.mensaje,
       user: datos.nombre,
       uid: datos.uid,
+      rol: datos.rol,
     };
   } catch (error) {
     return;

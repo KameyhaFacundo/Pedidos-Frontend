@@ -43,3 +43,11 @@ footer {
 .mainSection {
   flex-grow: 1;
 }
+.color-green {
+  background-color: var(--color-third);
+}
+.detalle-imagen {
+  width: 70%;
+  margin: 0 auto; /* Esto centrará la imagen horizontalmente */
+  display: flex; /* Asegura que la imagen sea un elemento de bloque para aplicar márgenes automáticamente */
+}

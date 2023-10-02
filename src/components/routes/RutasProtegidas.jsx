@@ -1,31 +1,32 @@
-import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Administrador from "../views/Administrador";
 import CrearProducto from "../views/producto/CrearProducto";
 import EditarProducto from "../views/producto/EditarProducto";
 import ProductAdmin from "../views/ProductAdmin";
+import Pedidos from "../views/Pedidos";
 
-function RutasProtegidas() {
+const RutasProtegidas = () => {
   return (
     <Routes>
       <Route exact path="/" element={<Administrador></Administrador>}></Route>
       <Route
         exact
-        path="/administracion/pedido"
-        element={<ProductAdmin></ProductAdmin>}
+        path="/crear"
+        element={<CrearProducto></CrearProducto>}
       ></Route>
       <Route
         exact
-        path="/administracion/editar/:id"
+        path="/editar/:id"
         element={<EditarProducto></EditarProducto>}
       ></Route>
       <Route
         exact
-        path="/administracion/crear"
-        element={<CrearProducto></CrearProducto>}
+        path="/productos"
+        element={<ProductAdmin></ProductAdmin>}
       ></Route>
+      <Route exact path="/pedidos" element={<Pedidos></Pedidos>}></Route>
     </Routes>
   );
-}
+};
 
 export default RutasProtegidas;

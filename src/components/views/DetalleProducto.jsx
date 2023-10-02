@@ -67,31 +67,33 @@ const DetalleProducto = ({ activeUser }) => {
     //     </Col>
     //   </Row>
     // </Container>
-    <Container className="my-3 mainSection">
-      <Card>
+    <Container className="my-3 mainSection px-5">
+      <Card className="px-0">
         <Row>
           <Col md={6}>
             <Card.Img
               variant="top"
+              className="detalle-imagen"
               src={product.image}
               alt={product.nameProduct}
             />
           </Col>
-          <Col md={6}>
+          <Col md={6} className="m-0">
             <Card.Body>
-              <Card.Title className="fs-1 fw-bold">
+              <Card.Title className="fs-1 fw-bold text-center">
                 {product.nameProduct}
               </Card.Title>
               <hr />
               <Card.Text>
-                {product.description}
-                <br />
                 <br />
                 <span className="text-danger fw-semibold fs-3">Categoria:</span>
-                <p className="fs-2">{product.category}</p>
+                <p className="fs-2 ">{product.category}</p>
                 <br />
                 <span className="text-danger fw-semibold fs-3">Precio:</span>
                 <p className="fs-2">${product.price}</p>
+                {product.description}
+                <br />
+                <br />
               </Card.Text>
             </Card.Body>
           </Col>

@@ -9,17 +9,35 @@ import DetalleProducto from "./components/views/DetalleProducto";
 import Error404 from "./components/views/Error404";
 import Menu from "./components/common/Menu";
 import Footer from "./components/common/Footer";
-import Pedidos from "./components/views/Pedidos";
-import Administrador from "./components/views/Administrador";
+import { useState } from "react";
+import EncapsularRutas from "./components/routes/EncapsularRutas";
+import RutasProtegidas from "./components/routes/RutasProtegidas";
+import Order from "./components/views/Order";
 
 function App() {
+  const userNoLogueado = {
+    id: 0,
+    rol: "usuario",
+  };
+  const userOnline =
+    JSON.parse(sessionStorage.getItem("usuarioLogeado")) || userNoLogueado;
+
+  const [activeUser, setActiveUser] = useState(userOnline);
   return (
     <>
       <BrowserRouter>
-        <Menu></Menu>
+        <Menu setActiveUser={setActiveUser} activeUser={activeUser}></Menu>
         <Routes>
-          <Route exact path="/" element={<Inicio></Inicio>}></Route>
-          <Route exact path="/login" element={<Login></Login>}></Route>
+          <Route
+            exact
+            path="/"
+            element={<Inicio activeUser={activeUser}></Inicio>}
+          ></Route>
+          <Route
+            exact
+            path="/login"
+            element={<Login setActiveUser={setActiveUser}></Login>}
+          ></Route>
           <Route
             exact
             path="/acerca-de-nosotros"
@@ -27,16 +45,26 @@ function App() {
           ></Route>
           <Route
             exact
-            path="/detalle-de-producto"
-            element={<DetalleProducto></DetalleProducto>}
+            path="/detalle/:id"
+            element={
+              <DetalleProducto activeUser={activeUser}></DetalleProducto>
+            }
+          ></Route>
+          <Route
+            exact
+            path="/order/:id"
+            element={<Order activeUser={activeUser}></Order>}
           ></Route>
           <Route exact path="/registro" element={<Registro></Registro>}></Route>
           <Route
             exact
-            path="/administracion"
-            element={<Administrador></Administrador>}
+            path="/administrador/*"
+            element={
+              <EncapsularRutas>
+                <RutasProtegidas />
+              </EncapsularRutas>
+            }
           ></Route>
-          <Route exact path="/pedidos" element={<Pedidos></Pedidos>}></Route>
           <Route exact path="*" element={<Error404></Error404>}></Route>
         </Routes>
         <Footer></Footer>

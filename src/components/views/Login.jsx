@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
-const Login = ({ setActiveUser, activeUser }) => {
+const Login = ({ setActiveUser }) => {
   const {
     register,
     handleSubmit,
@@ -24,7 +24,7 @@ const Login = ({ setActiveUser, activeUser }) => {
 
         sessionStorage.setItem("usuarioLogueado", JSON.stringify(answer));
         setActiveUser(answer);
-        if (activeUser.rol === "usuario") {
+        if (user.rol === "usuario") {
           navegacion("/order");
         } else {
           navegacion("/administrador");

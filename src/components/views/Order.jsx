@@ -8,6 +8,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Modal from "react-bootstrap/Modal";
 import "../../styles/order.css";
+import { listProducts } from "../helpers/queries";
 
 const OrderPage = () => {
   const [orders, setOrders] = useState([
@@ -16,6 +17,9 @@ const OrderPage = () => {
     { product: "Coca", price: 300, quantity: 1 },
     { product: "Jugo", price: 100, quantity: 1 },
   ]);
+
+  // const OrderPage = ({ listProducts }) => {
+  //   const [orders, setOrders] = useState(listProducts);
 
   const [observations, setObservations] = useState("");
   const [showModal, setShowModal] = useState(false);

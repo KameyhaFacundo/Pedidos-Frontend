@@ -50,6 +50,11 @@ function App() {
               <DetalleProducto activeUser={activeUser}></DetalleProducto>
             }
           ></Route>
+          <Route
+            exact
+            path="/order/:id"
+            element={<Order activeUser={activeUser}></Order>}
+          ></Route>
           <Route exact path="/registro" element={<Registro></Registro>}></Route>
           <Route
             exact
@@ -60,10 +65,8 @@ function App() {
               </EncapsularRutas>
             }
           ></Route>
-          <Route exact path="/order" element={<Order />}></Route>
           <Route exact path="*" element={<Error404></Error404>}></Route>
         </Routes>
-
         <Footer></Footer>
       </BrowserRouter>
     </>

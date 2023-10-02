@@ -32,9 +32,6 @@ const EditarProducto = () => {
   }, []);
 
   const onSubmit = (product) => {
-    console.log("aca agrego logica");
-    console.log(product);
-
     editProducts(id, product)
       .then((answer) => {
         if (answer.status === 200) {
@@ -44,10 +41,9 @@ const EditarProducto = () => {
             "success"
           );
         }
-        navegacion("/administracion/pedido");
+        navegacion("/administrador/productos");
       })
       .catch((error) => {
-        console.log(error);
         Swal.fire(
           "hubo un error ",
           "se produjo un error al editar producto",

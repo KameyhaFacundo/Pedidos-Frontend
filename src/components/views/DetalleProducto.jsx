@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { obtenerProduct } from "../helpers/queries";
 import { useForm } from "react-hook-form";
-import Swal from "sweetalert2";
 import { Container, Row, Card, Col, Button, Badge } from "react-bootstrap";
 
-const DetalleProducto = ({ activeUser }) => {
+const DetalleProducto = () => {
   const [product, setProduct] = useState("");
 
   const {
@@ -25,49 +24,14 @@ const DetalleProducto = ({ activeUser }) => {
   }, []);
 
   return (
-    // <Container
-    //   style={{
-    //     margin: "10px",
-    //     borderRadius: "15px",
-    //     boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
-    //   }}
-    // >
-    //   <Row>
-    //     <Col md={6} style={{ padding: "10px" }}>
-    //       <Card.Img
-    //         src={product.image}
-    //         style={{ borderRadius: "15px", width: "60%", height: "auto" }}
-    //         className=""
-    //       />
-    //     </Col>
-    //     <Col md={6} style={{ padding: "10px" }}>
-    //       <Card border="0">
-    //         <Card.Body>
-    //           <Card.Title style={{ fontSize: "18px", fontWeight: "bold" }}>
-    //             {product.nameProduct}
-    //           </Card.Title>
-    //           <Card.Text style={{ fontSize: "14px" }}>
-    //             {product.description}
-    //           </Card.Text>
-    //           <Card.Text style={{ fontSize: "16px", fontWeight: "bold" }}>
-    //             Price: ${product.price}
-    //           </Card.Text>
-    //           <Card.Text>
-    //             <Badge bg="info">{product.category}</Badge>
-    //           </Card.Text>
-    //           <Button
-    //             href={`/products/${product._id}`}
-    //             variant="primary"
-    //             size="sm"
-    //           >
-    //             Comprar
-    //           </Button>
-    //         </Card.Body>
-    //       </Card>
-    //     </Col>
-    //   </Row>
-    // </Container>
-    <Container className="my-3 mainSection px-5">
+    <Container
+      className="my-3 mainSection px-5"
+      style={{
+        margin: "10px",
+        borderRadius: "15px",
+        boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
+      }}
+    >
       <Card className="px-0">
         <Row>
           <Col md={6}>
@@ -81,7 +45,9 @@ const DetalleProducto = ({ activeUser }) => {
           <Col md={6} className="m-0">
             <Card.Body>
               <Card.Title className="fs-1 fw-bold text-center">
-                {product.nameProduct}
+                {product &&
+                  product.nameProduct &&
+                  product.nameProduct.toUpperCase()}
               </Card.Title>
               <hr />
               <Card.Text>
@@ -91,7 +57,8 @@ const DetalleProducto = ({ activeUser }) => {
                 <br />
                 <span className="text-danger fw-semibold fs-3">Precio:</span>
                 <p className="fs-2">${product.price}</p>
-                {product.description}
+                <br />
+                <p>{product.description}</p>
                 <br />
                 <br />
               </Card.Text>

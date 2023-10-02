@@ -1,14 +1,12 @@
 import React from "react";
 import { Container, Button, Nav, Navbar } from "react-bootstrap";
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { listUsers } from "../helpers/queries";
 
 const Menu = ({ setActiveUser, activeUser }) => {
   const [users, setUsers] = useState([]);
   const [admin, setAdmin] = useState([]);
-
-  const navigation = useNavigate();
 
   useEffect(() => {
     if (!activeUser || !Array.isArray(users)) {
@@ -30,8 +28,7 @@ const Menu = ({ setActiveUser, activeUser }) => {
   const logOut = () => {
     setActiveUser(0);
     sessionStorage.removeItem("usuarioLogeado");
-    window.location.reload();
-    navigation("/");
+    window.location.href = "/";
   };
 
   return (
@@ -58,7 +55,7 @@ const Menu = ({ setActiveUser, activeUser }) => {
           <Navbar.Collapse id="responsive-navbar-nav collapsex buttons-nav">
             <Nav className="me-auto buttons-nav">
               {(() => {
-                if (activeUser.id === 0) {
+                if (activeUser.id === 0 && activeUser.rol !== "administrador") {
                   return (
                     <>
                       <Link to={"/acerca-de-nosotros"} className="text-center">

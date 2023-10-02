@@ -24,7 +24,6 @@ const RutasProtegidas = () => {
         path="/productos"
         element={<ProductAdmin></ProductAdmin>}
       ></Route>
-      <Route exact path="/pedidos" element={<Pedidos></Pedidos>}></Route>
     </Routes>
   );
 };

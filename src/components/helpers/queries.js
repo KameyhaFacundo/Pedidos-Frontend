@@ -6,7 +6,6 @@ const uriPedidos = import.meta.env.VITE_API_PEDIDOS;
 
 export const obtenerProduct = async (id) => {
   try {
-    console.log(id);
     const resp = await fetch(`${uriProducts}/${id}`);
     const data = await resp.json();
     return data;
@@ -17,18 +16,17 @@ export const obtenerProduct = async (id) => {
 
 export const listUsers = async () => {
   try {
-    const resp = await fetch(uriUser);
+    const resp = await fetch(uriUsuario);
     const userList = await resp.json();
     return userList;
   } catch (error) {
-    console.log(error);
     return null;
   }
 };
 
 export const createUser = async (user) => {
   try {
-    const resp = await fetch(`${uriUser}/crear`, {
+    const resp = await fetch(`${crearUser}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -69,7 +67,6 @@ export const listProducts = async () => {
     const productList = await resp.json();
     return productList;
   } catch (error) {
-    console.log(error);
     return null;
   }
 };
@@ -77,9 +74,7 @@ export const listProducts = async () => {
 export const tolistProducts = async () => {
   try {
     const answer = await fetch(uriProducts);
-
     const tolistProducts = await answer.json();
-    console.log(tolistProducts);
     return tolistProducts;
   } catch (error) {
     console.log(error);

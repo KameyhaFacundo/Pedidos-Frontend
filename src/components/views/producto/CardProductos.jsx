@@ -47,14 +47,16 @@ function CardProductos({ products, activeUser }) {
                 />
                 <Card.Body className="card-body-size d-flex flex-column justify-content-center">
                   <div className="d-flex justify-content-between">
-                    <Card.Text>{product.nameProduct}</Card.Text>
-
+                    <Card.Text>
+                      {product &&
+                        product.nameProduct &&
+                        product.nameProduct.charAt(0).toUpperCase() +
+                          product.nameProduct.slice(1)}
+                    </Card.Text>
                     <Card.Title className="custom-card-size">
                       {"$" + product.price}
                     </Card.Title>
                   </div>
-                  {/* <Link className="w-100" to={"/pedidos" + product._id}> */}
-
                   <Link className="w-100" to={"/"}>
                     <Button
                       variant="danger"

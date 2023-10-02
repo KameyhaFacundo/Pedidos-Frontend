@@ -4,26 +4,31 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
-const Login = ({ setActiveUser }) => {
+const Login = ({ setActiveUser, activeUser }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const navegacion = useNavigate();
 
   const onSubmit = (user) => {
     login(user).then((answer) => {
       if (answer.status === 200) {
         Swal.fire(
-          "Bienvenido " + answer.user,
+          " Bienvenido ",
           "Ingresaste a la web pedidos rolling",
           "success"
         );
 
         sessionStorage.setItem("usuarioLogueado", JSON.stringify(answer));
         setActiveUser(answer);
-        navegacion("/");
+        if (activeUser.rol === "usuario") {
+          navegacion("/order");
+        } else {
+          navegacion("/administrador");
+        }
       } else {
         Swal.fire("Ocurrio un error", "Email o password incorrecto", "error");
       }

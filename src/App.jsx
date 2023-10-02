@@ -36,7 +36,12 @@ function App() {
           <Route
             exact
             path="/login"
-            element={<Login setActiveUser={setActiveUser}></Login>}
+            element={
+              <Login
+                setActiveUser={setActiveUser}
+                activeUser={activeUser}
+              ></Login>
+            }
           ></Route>
           <Route
             exact

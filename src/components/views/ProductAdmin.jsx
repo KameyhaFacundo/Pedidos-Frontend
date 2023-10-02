@@ -16,13 +16,14 @@ const ProductAdmin = () => {
       }
     });
   }, []);
+
   return (
     <section className="container mainSection">
       <div className="d-flex justify-content-between align-items-center mt-5">
         <h1 className="display-4 ">Productos disponibles</h1>
         <Link
           className="btn btn-primary bg-orange border-0"
-          to="/administracion/crear"
+          to="/administrador/crear"
         >
           Agregar
         </Link>

@@ -1,12 +1,12 @@
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-
 import Swal from "sweetalert2";
 import { createProducts, obtainProducts } from "../../helpers/queries";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const CrearProducto = () => {
   const navegacion = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -24,9 +24,6 @@ const CrearProducto = () => {
   });
 
   const onSubmit = (product) => {
-    console.log("aca agrego logica");
-    console.log(product);
-
     createProducts(product)
       .then((answer) => {
         if (answer.status === 201) {
@@ -36,11 +33,10 @@ const CrearProducto = () => {
             "success"
           );
           reset();
-          navegacion("/administracion/pedido");
+          navegacion("/administrador/productos");
         }
       })
       .catch((error) => {
-        console.log(error);
         Swal.fire(
           "hubo un error ",
           "se produjo un error al cargar producto",
@@ -147,9 +143,11 @@ const CrearProducto = () => {
             {errors.category?.message}
           </Form.Text>
         </Form.Group>
-        <Button variant="primary" type="submit">
-          Guardar
-        </Button>
+        <Link to={"/administrador/productos"} className="text-center">
+          <Button variant="primary" type="submit">
+            Guardar
+          </Button>
+        </Link>
       </Form>
     </section>
   );

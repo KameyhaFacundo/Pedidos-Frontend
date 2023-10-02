@@ -4,7 +4,7 @@
 }
 
 .image-container {
-  max-height: 600px;
+  max-height: 400px;
 }
 
 .image-container img {
@@ -40,4 +40,17 @@
   display: flex;
   padding: 30px;
   margin: 4px;
+}
+
+.title-1 {
+  color: black;
+  font-weight: 800;
+  font-size: 5rem;
+  margin-left: 10px;
+}
+
+.subtitle-1 {
+  color: red;
+  font-weight: 600;
+  font-size: 3rem;
 }

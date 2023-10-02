@@ -24,8 +24,8 @@ const Login = ({ setActiveUser }) => {
 
         sessionStorage.setItem("usuarioLogueado", JSON.stringify(answer));
         setActiveUser(answer);
-        if (user.rol === "usuario") {
-          navegacion("/order");
+        if (answer.rol === "usuario") {
+          navegacion("/");
         } else {
           navegacion("/administrador");
         }

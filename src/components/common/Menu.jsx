@@ -38,7 +38,7 @@ const Menu = ({ setActiveUser, activeUser }) => {
         expand="lg"
         className="sticky-top body-nav p-0 bg-color"
       >
-        <Container>
+        <Container className="mb-2">
           <Navbar.Brand>
             <Link to={"/"}>
               <img

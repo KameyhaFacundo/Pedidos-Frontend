@@ -52,7 +52,7 @@ function App() {
           ></Route>
           <Route
             exact
-            path="/order/:id"
+            path="/order"
             element={<Order activeUser={activeUser}></Order>}
           ></Route>
           <Route exact path="/registro" element={<Registro></Registro>}></Route>

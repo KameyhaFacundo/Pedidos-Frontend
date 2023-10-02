@@ -18,7 +18,7 @@ function CardProductos({ products, activeUser }) {
 
   const añadirAlCarrito = () => {
     if (activeUser.rol === "usuario") {
-      navegacion("/Pedidos");
+      Swal.fire("Se agrego a la lista de pedidos");
     } else {
       Swal.fire("Debes iniciar Sesion");
     }
@@ -57,10 +57,10 @@ function CardProductos({ products, activeUser }) {
                       {"$" + product.price}
                     </Card.Title>
                   </div>
-                  <Link className="w-100" to={"/order/" + product._id}>
+                  <Link className="w-100" to={"/"}>
                     <Button
                       variant="danger"
-                      className="mb-1 w-100"
+                      className="mb-1 w-100 bg-orange border-0"
                       onClick={añadirAlCarrito}
                     >
                       Comprar

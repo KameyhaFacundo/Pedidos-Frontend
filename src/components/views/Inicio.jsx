@@ -61,13 +61,13 @@ const Inicio = ({ activeUser }) => {
             <div className="image-container">
               <img
                 className="d-block w-100"
-                src="https://www.elagoradiario.com/wp-content/uploads/2020/08/comida-rapida-coronavirus.jpg"
+                src="https://images.pexels.com/photos/4109136/pexels-photo-4109136.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                 alt="Segunda imagen"
               />
             </div>
             <Carousel.Caption>
-              <h2 className="title-1">BIENVENIDOS</h2>
-              <p className="subtitle-1">Hace tu pedido facil y rapido!</p>
+              <h2 className="title">BIENVENIDOS</h2>
+              <p className="subtitle">Hace tu pedido facil y rapido!</p>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>

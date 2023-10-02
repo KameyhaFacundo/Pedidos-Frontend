@@ -40,3 +40,6 @@ footer {
   border-color: black;
   border: 1px;
 }
+.mainSection {
+  flex-grow: 1;
+}

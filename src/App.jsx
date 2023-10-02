@@ -17,6 +17,7 @@ import CrearProducto from "./components/views/producto/CrearProducto";
 import EditarProducto from "./components/views/producto/EditarProducto";
 import EncapsularRutas from "./components/routes/EncapsularRutas";
 import RutasProtegidas from "./components/routes/RutasProtegidas";
+import Order from "./components/views/Order";
 
 function App() {
   const userNoLogueado = {
@@ -84,6 +85,7 @@ function App() {
             path="/administracion/crear"
             element={<CrearProducto></CrearProducto>}
           ></Route> */}
+          <Route exact path="/order" element={<Order />}></Route>
           <Route exact path="/pedidos" element={<Pedidos></Pedidos>}></Route>
           <Route exact path="*" element={<Error404></Error404>}></Route>
         </Routes>

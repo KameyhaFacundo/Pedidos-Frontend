@@ -40,14 +40,14 @@
   background-color: var(--color-third);
 }
 
-.custom-button {
+.custom-button-acerc {
   background-color: transparent;
   border: none;
   color: black;
   padding: 2;
 }
 
-.custom-button:hover {
+.custom-button-acerc:hover {
   background-color: transparent;
   color: var(--color-fourth);
 }

@@ -31,11 +31,11 @@ function CardProductos({ products, activeUser }) {
           <p className="result-none">No se encontraron resultados</p>
         ) : (
           <div className="d-flex flex-wrap justify-content-center card-page-body">
-            {currentProductos.map((product) => (
+            {currentProductos.map((product, index) => (
               <Card
                 className="mx-3 Nav-link card-product"
-                key={product.id}
-                style={{ width: "18rem" }}
+                key={index}
+                style={{ width: "25rem" }}
               >
                 <Card.Img
                   className="h-100"
@@ -53,7 +53,7 @@ function CardProductos({ products, activeUser }) {
                       {"$" + product.price}
                     </Card.Title>
                   </div>
-                  {/* <Link className="w-100" to={"/pedidos" + product.id}> */}
+                  {/* <Link className="w-100" to={"/pedidos" + product._id}> */}
 
                   <Link className="w-100" to={"/"}>
                     <Button
@@ -64,7 +64,7 @@ function CardProductos({ products, activeUser }) {
                       Comprar
                     </Button>
                   </Link>
-                  <Link className="w-100" to={"/detalle/" + product.id}>
+                  <Link className="w-100" to={"/detalle/" + product._id}>
                     <Button variant="warning" className="mb-1 w-100">
                       Ver más
                     </Button>

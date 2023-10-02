@@ -1,4 +1,4 @@
-const uriUser = import.meta.env.VITE_API_USUARIO;
+const uriUser = import.meta.env.VITE_API_LOGIN;
 const uriProducts = import.meta.env.VITE_API_PRODUCTOS;
 
 export const obtenerProduct = async (id) => {

@@ -60,7 +60,7 @@ const Menu = ({ setActiveUser, activeUser }) => {
                     <>
                       <Link to={"/acerca-de-nosotros"} className="text-center">
                         <Button
-                          className="mx-1 custom-button-acerc mt-2"
+                          className="mx-1 color-button mt-2"
                           type="submit"
                         >
                           Acerca de Nosotros
@@ -87,49 +87,46 @@ const Menu = ({ setActiveUser, activeUser }) => {
                 } else if (activeUser.rol === "administrador") {
                   return (
                     <>
-                      <Nav>
-                        <Link
-                          to={"/acerca-de-nosotros"}
-                          className="text-center"
+                      <Link to={"/acerca-de-nosotros"} className="text-center">
+                        <Button
+                          className="mx-1 color-button mt-2"
+                          type="submit"
                         >
-                          <Button
-                            className="mx-1 custom-button-acerc"
-                            type="submit"
-                          >
-                            Acerca de Nosotros
-                          </Button>
-                        </Link>
-                        <Nav>
-                          <Link to={"/administrador"} className="text-center">
-                            <Button className="mx-1 color-button" type="submit">
-                              Administrador
-                            </Button>
-                          </Link>
-                        </Nav>
-                        <Link className="mr-5 text-center">
-                          <Button
-                            className="mx-1 mr-5 close-button"
-                            onClick={() => {
-                              logOut();
-                            }}
-                          >
-                            Cerrar sesión
-                          </Button>
-                        </Link>
-                      </Nav>
+                          Acerca de Nosotros
+                        </Button>
+                      </Link>
+
+                      <Link to={"/administrador"} className="text-center">
+                        <Button
+                          className="mx-1 color-button mt-2"
+                          type="submit"
+                        >
+                          Administrador
+                        </Button>
+                      </Link>
+
+                      <Link className="mr-5 text-center">
+                        <Button
+                          // className="mx-1 mr-5 close-button"
+                          className="mx-1 close-button mt-2"
+                          onClick={() => {
+                            logOut();
+                          }}
+                        >
+                          Cerrar sesión
+                        </Button>
+                      </Link>
                     </>
                   );
                 } else {
                   return (
                     <>
                       <Link to={"/acerca-de-nosotros"} className="text-center">
-                        <Button
-                          className="mx-1 custom-button-acerc"
-                          type="submit"
-                        >
+                        <Button className="mx-1 color-button" type="submit">
                           Acerca de Nosotros
                         </Button>
                       </Link>
+
                       <Nav>
                         <Link to={"/order"} className="text-center">
                           <Button className="mx-1 color-button" type="submit">

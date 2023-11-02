@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { obtenerProduct } from "../helpers/queries";
 import { useForm } from "react-hook-form";
 import { Container, Row, Card, Col, Button, Badge } from "react-bootstrap";
@@ -53,7 +53,7 @@ const DetalleProducto = () => {
               <Card.Text>
                 <br />
                 <span className="text-danger fw-semibold fs-3">Categoria:</span>
-                <p className="fs-2 ">{product.category}</p>
+                <p className="fs-2">{product.category}</p>
                 <br />
                 <span className="text-danger fw-semibold fs-3">Precio:</span>
                 <p className="fs-2">${product.price}</p>
@@ -62,6 +62,9 @@ const DetalleProducto = () => {
                 <br />
                 <br />
               </Card.Text>
+              <Link className="btn btn-primary bg-orange border-0" to="/">
+                Volver inicio
+              </Link>
             </Card.Body>
           </Col>
         </Row>

@@ -47,7 +47,6 @@ const ItemProducto = ({
 
   return (
     <tr>
-      <td>{_id}</td>
       <td>{nameProduct}</td>
       <td>$ {price}</td>
       <td>
@@ -56,14 +55,13 @@ const ItemProducto = ({
       <td>{category}</td>
       <td>
         <Link
-          className="btn btn-warning mb-1 text-center bg-orange border-0 px-3"
+          className="btn btn-warning m-1 text-center bg-orange border-0 px-3"
           to={`/administrador/editar/${_id}`}
         >
           Editar
         </Link>
         <Button
-          variant="danger"
-          className="text-center px-2 color-green border-0"
+          className=" btn btn-warning m-1 text-center px-2 color-green border-0"
           onClick={deleteProductAdmin}
         >
           Eliminar

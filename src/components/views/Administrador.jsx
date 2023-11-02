@@ -50,7 +50,6 @@ const Administrador = () => {
               <table className="table table-hover border shadow">
                 <thead>
                   <tr>
-                    <th scope="col">ID</th>
                     <th scope="col">Apodo</th>
                     <th scope="col">Correo electrónico</th>
                     <th scope="col">Rol</th>

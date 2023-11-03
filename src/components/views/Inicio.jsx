@@ -42,7 +42,7 @@ const Inicio = ({ activeUser }) => {
   }, []);
   return (
     <>
-      <div className="carrousel-container">
+      {/* <div className="carrousel-container">
         <Carousel data-bs-theme="dark">
           <Carousel.Item>
             <div className="image-container">
@@ -57,20 +57,18 @@ const Inicio = ({ activeUser }) => {
               <p className="subtitle">Hace tu pedido facil y rapido!</p>
             </Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item>
-            <div className="image-container">
-              <img
-                className="d-block w-100"
-                src="https://images.pexels.com/photos/4109136/pexels-photo-4109136.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                alt="Segunda imagen"
-              />
-            </div>
-            <Carousel.Caption>
-              <h2 className="title">BIENVENIDOS</h2>
-              <p className="subtitle">Hace tu pedido facil y rapido!</p>
-            </Carousel.Caption>
-          </Carousel.Item>
         </Carousel>
+      </div> */}
+      <div className="img-container">
+        <img
+          className="d-block w-100"
+          src="https://res.cloudinary.com/dgzimgpia/image/upload/v1696039061/EDIDOS_ROLLING_zg3dzc.png"
+          alt="Imagen de bienvenida"
+        />
+        <div className="img-text">
+          <h2 className="title">BIENVENIDOS</h2>
+          <p className="subtitle">Hace tu pedido fácil y rápido.</p>
+        </div>
       </div>
       <section className="search-name">
         <Form>

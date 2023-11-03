@@ -51,3 +51,29 @@ footer {
   margin: 0 auto;
   display: flex;
 }
+
+.img-container {
+  position: relative;
+  text-align: center;
+}
+
+.img-container img {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+}
+
+.img-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .img-text {
+    display: none;
+  }
+}

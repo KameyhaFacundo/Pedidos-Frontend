@@ -8,7 +8,7 @@ import Pedidos from "../views/Pedidos";
 const RutasProtegidas = () => {
   return (
     <Routes>
-      <Route exact path="/" element={<Administrador></Administrador>}></Route>
+      <Route exact path="/" element={<ProductAdmin></ProductAdmin>}></Route>
       <Route
         exact
         path="/crear"
@@ -21,8 +21,8 @@ const RutasProtegidas = () => {
       ></Route>
       <Route
         exact
-        path="/productos"
-        element={<ProductAdmin></ProductAdmin>}
+        path="/usuarios"
+        element={<Administrador></Administrador>}
       ></Route>
     </Routes>
   );

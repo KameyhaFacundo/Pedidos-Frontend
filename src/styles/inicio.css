@@ -54,3 +54,34 @@
   font-weight: 600;
   font-size: 3rem;
 }
+
+/* Carrito */
+/* Estilos para el botón de carrito flotante */
+.carrito-flotante {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #eb6440;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s; /* Agregamos una transición suave para el cambio de color al pasar el cursor */
+}
+
+/* Estilos para el icono del carrito */
+.carrito-flotante i {
+  color: #fff;
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Cambia el color de fondo al pasar el cursor sobre el botón */
+.carrito-flotante:hover {
+  background-color: #ff8c60; /* Color diferente al pasar el cursor */
+}

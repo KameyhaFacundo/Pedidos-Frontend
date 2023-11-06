@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
-function CardProductos({ products, activeUser }) {
+function CardProductos({ products, activeUser, agregarAlCarrito }) {
   const itemsPerPage = 12;
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -16,11 +16,13 @@ function CardProductos({ products, activeUser }) {
     startIndex + itemsPerPage
   );
 
-  const añadirAlCarrito = () => {
+  const añadirAlCarrito = (product) => {
     if (activeUser.rol === "usuario") {
+      agregarAlCarrito(product);
+
       Swal.fire("Se agrego a la lista de pedidos");
     } else {
-      Swal.fire("Debes iniciar Sesion");
+      Swal.fire("Debes iniciar Sesión");
     }
   };
 
@@ -61,7 +63,7 @@ function CardProductos({ products, activeUser }) {
                     <Button
                       variant="danger"
                       className="mb-1 w-100 bg-orange border-0"
-                      onClick={añadirAlCarrito}
+                      onClick={() => añadirAlCarrito(product)}
                     >
                       Comprar
                     </Button>

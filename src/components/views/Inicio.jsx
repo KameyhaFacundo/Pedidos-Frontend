@@ -125,6 +125,8 @@ import CardProductos from "./producto/CardProductos";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import Order from "./Order";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 const Inicio = ({ activeUser }) => {
   const [products, setProducts] = useState([]);
@@ -133,7 +135,6 @@ const Inicio = ({ activeUser }) => {
   const [carrito, setCarrito] = useState([]);
   const [contadorCarrito, setContadorCarrito] = useState(0);
 
-  // Función para agregar un producto al carrito
   const agregarAlCarrito = (producto) => {
     setCarrito([...carrito, producto]);
     setContadorCarrito((prevContador) => prevContador + 1);
@@ -170,8 +171,15 @@ const Inicio = ({ activeUser }) => {
   return (
     <>
       <div className="carrito-flotante">
-        <Link>
-          <button>Carrito ({contadorCarrito}) </button>
+        <Link className="text-center " to={"/order"}>
+          <FontAwesomeIcon
+            icon={faCartShopping}
+            size="2xl"
+            beat
+            style={{ color: "#000000" }}
+          />
+          <div className="carrito-cantidad">{contadorCarrito}</div>
+          {/* <h2> ({contadorCarrito}) </h2> */}
         </Link>
       </div>
       <div className="img-container">
@@ -206,7 +214,6 @@ const Inicio = ({ activeUser }) => {
         agregarAlCarrito={agregarAlCarrito}
       />
       <Order carrito={carrito}></Order>
-
       {activeUser.id === 0 && (
         <div>
           <div className="w-100 h-100 mt-3 py-3 register">

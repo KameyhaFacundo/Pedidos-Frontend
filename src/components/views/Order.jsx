@@ -167,22 +167,24 @@
 
 import React from "react";
 import { Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 const Order = ({ carrito }) => {
   return (
     <div>
       <h2>Orden de Compra</h2>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Precio</th>
-            <th>Imagen</th>
-          </tr>
-        </thead>
-        <tbody>
-          {carrito ? (
-            carrito.map((item, index) => (
+      {carrito && carrito.length > 0 ? (
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Imagen</th>
+            </tr>
+          </thead>
+          <tbody>
+            {carrito.map((item, index) => (
               <tr key={index}>
                 <td>{item.nameProduct}</td>
                 <td>{item.price}</td>
@@ -194,14 +196,15 @@ const Order = ({ carrito }) => {
                   />
                 </td>
               </tr>
-            ))
-          ) : (
-            <tr>
-              <td colSpan="3">No hay elementos en el carrito</td>
-            </tr>
-          )}
-        </tbody>
-      </Table>
+            ))}
+          </tbody>
+        </Table>
+      ) : (
+        <p>No hay elementos en el carrito</p>
+      )}
+      <Link to="/">
+        <Button>Volver</Button>
+      </Link>
     </div>
   );
 };

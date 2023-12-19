@@ -9,7 +9,7 @@ import DetalleProducto from "./components/views/DetalleProducto";
 import Error404 from "./components/views/Error404";
 import Menu from "./components/common/Menu";
 import Footer from "./components/common/Footer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import EncapsularRutas from "./components/routes/EncapsularRutas";
 import RutasProtegidas from "./components/routes/RutasProtegidas";
 import Order from "./components/views/Order";
@@ -22,6 +22,14 @@ function App() {
   const userOnline =
     JSON.parse(sessionStorage.getItem("usuarioLogueado")) || userNoLogueado;
 
+  useEffect(()=>{
+    if(userOnline.id == 0){  
+    localStorage.removeItem("contadorCarrito");
+    localStorage.removeItem("carrito");
+  } 
+  },[]);
+
+   
   const [activeUser, setActiveUser] = useState(userOnline);
   return (
     <>

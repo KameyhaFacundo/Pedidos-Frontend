@@ -28,6 +28,8 @@ const Menu = ({ setActiveUser, activeUser }) => {
   const logOut = () => {
     setActiveUser(0);
     sessionStorage.removeItem("usuarioLogueado");
+    localStorage.removeItem("contadorCarrito");
+    localStorage.removeItem("carrito");
     window.location.href = "/";
   };
 

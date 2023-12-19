@@ -24,6 +24,8 @@ const Login = ({ setActiveUser }) => {
         );
 
         sessionStorage.setItem("usuarioLogueado", JSON.stringify(answer));
+        localStorage.removeItem("contadorCarrito");
+        localStorage.removeItem("carrito");
         setActiveUser(answer);
         if (answer.rol === "usuario") {
           navegacion("/");

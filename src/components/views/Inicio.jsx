@@ -14,7 +14,8 @@ const Inicio = ({ activeUser }) => {
   const [products, setProducts] = useState([]);
   const [productsfilter, setProductsFilter] = useState([]);
   const [search, setSearch] = useState("");
-  const [carrito, setCarrito] = useState([]);
+  const carritoAntiguo = JSON.parse(localStorage.getItem("carrito")) || [];
+  const [carrito, setCarrito] = useState(carritoAntiguo);
   const [contadorCarrito, setContadorCarrito] = useState(
     parseInt(localStorage.getItem("contadorCarrito")) || 0
   );

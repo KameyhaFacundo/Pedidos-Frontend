@@ -8,7 +8,7 @@ function CardProductos({ products, activeUser, agregarAlCarrito }) {
   const itemsPerPage = 12;
   const [currentPage, setCurrentPage] = useState(1);
 
-  const navegacion = useNavigate();
+  const navigate = useNavigate();
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentProductos = products.slice(
@@ -17,12 +17,14 @@ function CardProductos({ products, activeUser, agregarAlCarrito }) {
   );
 
   const añadirAlCarrito = (product) => {
-    if (activeUser.rol === "usuario") {
-      agregarAlCarrito(product);
+    const isAuthenticated = activeUser && activeUser.rol === "usuario";
 
-      Swal.fire("Se agrego a la lista de pedidos");
+    if (isAuthenticated) {
+      agregarAlCarrito(product);
+      Swal.fire("Se agregó a la lista de pedidos");
     } else {
       Swal.fire("Debes iniciar Sesión");
+      navigate("/login");
     }
   };
 

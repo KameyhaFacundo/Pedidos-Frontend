@@ -115,7 +115,7 @@ const EditarProducto = () => {
             <option value="bebidas">bebidas</option>
           </Form.Select>
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button className="my-3" variant="primary" type="submit">
           Guardar
         </Button>
       </Form>

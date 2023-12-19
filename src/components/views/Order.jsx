@@ -8,7 +8,7 @@ const Order = () => {
 
   return (
     <div>
-      <h2>Orden de Compra</h2>
+      <h2 className="text-center my-5">Orden de Compra</h2>
       {carrito.length > 0 ? (
         <Table striped bordered hover>
           <thead>
@@ -35,11 +35,13 @@ const Order = () => {
           </tbody>
         </Table>
       ) : (
-        <p>No hay elementos en el carrito</p>
+        <h4 className="text-center">No hay elementos en el carrito</h4>
       )}
-      <Link to="/">
-        <Button>Volver</Button>
-      </Link>
+     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+  <Link to="/">
+    <Button>Volver</Button>
+  </Link>
+</div>
     </div>
   );
 };

@@ -84,7 +84,7 @@ const Inicio = ({ activeUser }) => {
             beat
             style={{ color: "#000000" }}
           />
-          <div className="carrito-cantidad">{contadorCarrito}</div>
+          <span className="carrito-cantidad">{contadorCarrito}</span>
         </Link>
       </div>
       <div className="img-container">

@@ -38,10 +38,7 @@ const ProductAdmin = () => {
               <FontAwesomeIcon className="mx-2" icon={faUser} />
               Usuarios
             </Link>
-            <Link className="btn btn-success" to={"/administrador/pedido"}>
-              <FontAwesomeIcon className="mx-2" icon={faCartShopping} />
-              Pedidos
-            </Link>
+            
           </div>
           <h3 className="text-center mb-4">
             <FontAwesomeIcon className="mx-2" icon={faUtensils} />

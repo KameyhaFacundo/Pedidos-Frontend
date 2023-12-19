@@ -29,14 +29,10 @@ const Administrador = () => {
       <div className="row">
         <div className="col">
           <div className="d-grid gap-2 mb-4 d-md-flex justify-content-md-end">
-            <Link className="btn btn-primary" to={"/administrador/productos"}>
+            <Link className="btn btn-primary" to={"/administrador"}>
               <FontAwesomeIcon className="mx-2" icon={faUtensils} />
               Productos
-            </Link>
-            <Link className="btn btn-success" to={"/administrador/pedido"}>
-              <FontAwesomeIcon className="mx-2" icon={faCartShopping} />
-              Pedidos
-            </Link>
+            </Link>           
           </div>
           <h3 className="text-center mb-4">
             <FontAwesomeIcon className="mx-2" icon={faUser} />

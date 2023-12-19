@@ -146,7 +146,7 @@ const CrearProducto = () => {
             {errors.category?.message}
           </Form.Text>
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" className="my-3">
             Guardar
           </Button>
       </Form>

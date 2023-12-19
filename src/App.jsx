@@ -17,10 +17,10 @@ import Order from "./components/views/Order";
 function App() {
   const userNoLogueado = {
     id: 0,
-    rol: "usuario",
+    rol: null,
   };
   const userOnline =
-    JSON.parse(sessionStorage.getItem("usuarioLogeado")) || userNoLogueado;
+    JSON.parse(sessionStorage.getItem("usuarioLogueado")) || userNoLogueado;
 
   const [activeUser, setActiveUser] = useState(userOnline);
   return (

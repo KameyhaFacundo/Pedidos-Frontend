@@ -17,7 +17,7 @@ function CardProductos({ products, activeUser, agregarAlCarrito }) {
   );
 
   const añadirAlCarrito = (product) => {
-    const isAuthenticated = activeUser && activeUser.rol === "usuario";
+    const isAuthenticated = activeUser && activeUser.rol === "usuario" ;
 
     if (isAuthenticated) {
       agregarAlCarrito(product);

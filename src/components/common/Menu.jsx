@@ -27,7 +27,7 @@ const Menu = ({ setActiveUser, activeUser }) => {
 
   const logOut = () => {
     setActiveUser(0);
-    sessionStorage.removeItem("usuarioLogeado");
+    sessionStorage.removeItem("usuarioLogueado");
     window.location.href = "/";
   };
 

@@ -28,6 +28,12 @@ const ProductAdmin = () => {
       <div className="row">
         <div className="col">
           <div className="d-grid gap-2 mb-4 d-md-flex justify-content-md-end">
+          <Link
+          className="btn btn-primary bg-orange border-0"
+          to="/administrador/crear"
+        >
+          Agregar
+        </Link>
             <Link className="btn btn-primary" to={"/administrador/usuarios"}>
               <FontAwesomeIcon className="mx-2" icon={faUser} />
               Usuarios

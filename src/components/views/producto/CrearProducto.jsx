@@ -24,7 +24,10 @@ const CrearProducto = () => {
   });
 
   const onSubmit = (product) => {
+    
+    
     createProducts(product)
+    
       .then((answer) => {
         if (answer.status === 201) {
           Swal.fire(
@@ -33,7 +36,7 @@ const CrearProducto = () => {
             "success"
           );
           reset();
-          navegacion("/administrador/productos");
+          navegacion("/administrador");
         }
       })
       .catch((error) => {
@@ -143,11 +146,9 @@ const CrearProducto = () => {
             {errors.category?.message}
           </Form.Text>
         </Form.Group>
-        <Link to={"/administrador/productos"} className="text-center">
-          <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit">
             Guardar
           </Button>
-        </Link>
       </Form>
     </section>
   );

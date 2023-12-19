@@ -41,7 +41,7 @@ const EditarProducto = () => {
             "success"
           );
         }
-        navegacion("/administrador/productos");
+        navegacion("/administrador");
       })
       .catch((error) => {
         Swal.fire(

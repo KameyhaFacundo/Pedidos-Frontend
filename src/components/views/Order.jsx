@@ -13,6 +13,10 @@ const Order = () => {
       text: '¡Muchas Gracias por confiar en nosotros!',
       icon: 'success',
       confirmButtonText: 'Cerrar'
+    }).then(() => {
+      localStorage.removeItem("carrito");
+      localStorage.removeItem("contadorCarrito");
+      location.reload(); 
     });
   };
 
@@ -53,8 +57,11 @@ const Order = () => {
     <Button variant="secondary">Volver</Button>
   </Link>
 
-  <Button variant="success" className="mx-4" onClick={mostrarAlerta}>Comprar</Button>
-
+  {carrito.length > 0 && (
+        <Button variant="success" className="mx-4" onClick={mostrarAlerta}>
+          Comprar
+        </Button>
+      )}
 </div>
     </div>
   );

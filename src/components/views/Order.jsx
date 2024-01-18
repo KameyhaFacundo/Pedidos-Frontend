@@ -2,9 +2,20 @@ import React from "react";
 import { Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import Swal from "sweetalert2";
 
 const Order = () => {
   const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+  const mostrarAlerta = () => {
+    Swal.fire({
+      title: '¡Compra Realizada!',
+      text: '¡Muchas Gracias por confiar en nosotros!',
+      icon: 'success',
+      confirmButtonText: 'Cerrar'
+    });
+  };
+
 
   return (
     <div>
@@ -39,11 +50,14 @@ const Order = () => {
       )}
      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
   <Link to="/">
-    <Button>Volver</Button>
+    <Button variant="secondary">Volver</Button>
   </Link>
+
+  <Button variant="success" className="mx-4" onClick={mostrarAlerta}>Comprar</Button>
+
 </div>
     </div>
   );
-};
+      };
 
 export default Order;

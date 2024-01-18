@@ -21,6 +21,10 @@ footer {
   margin-top: auto;
 }
 
+body{
+  overflow-x: hidden;
+}
+
 .bg-orange {
   background-color: var(--color-fourth);
 }
